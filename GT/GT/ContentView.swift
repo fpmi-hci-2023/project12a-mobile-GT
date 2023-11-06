@@ -13,20 +13,33 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                TabView(selection: $selectedTab) {
+
+                if selectedTab == .meets {
                     MeetsView()
-                    .tag(Tab.meets)
+                } else if selectedTab == .calendar {
                     CalendarView()
-                        .tag(Tab.calendar)
+                } else if selectedTab == .chats {
                     ChatsView()
-                        .tag(Tab.chats)
+                } else if selectedTab == .profile {
                     ProfileView()
-                        .tag(Tab.profile)
                 }
-                VStack {
-                    Spacer()
-                    TabBarView(selectedTab: $selectedTab)
-                }
+                TabBarView(selectedTab: $selectedTab)
+                
+                
+//                TabView(selection: $selectedTab) {
+//                    MeetsView()
+//                        .tag(Tab.meets)
+//                    CalendarView()
+//                        .tag(Tab.calendar)
+//                    ChatsView()
+//                        .tag(Tab.chats)
+//                    ProfileView()
+//                        .tag(Tab.profile)
+//                }
+//                ZStack {
+//    
+//                    TabBarView(selectedTab: $selectedTab)
+//                }
             }
            
         }

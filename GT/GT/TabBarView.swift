@@ -21,7 +21,6 @@ struct TabBarView: View {
     var phoneHeight = UIScreen.main.bounds.height
     var phoneWidth = UIScreen.main.bounds.width
     var tabBarHeight = UIScreen.main.bounds.height / 14
-    var barPlayer = UIScreen.main.bounds.height / 6.4
     var tabBarHeightDivide3 = UIScreen.main.bounds.height / 33
     
     //Изображение профиля
@@ -38,7 +37,7 @@ struct TabBarView: View {
             ZStack {
               Rectangle()
                     .frame(width: phoneWidth * 0.86 , height: tabBarHeight)
-                    .background(.black).opacity(0.2)
+                    .foregroundStyle(.ultraThinMaterial)
                     .cornerRadius(40)
                 
                 HStack {
@@ -46,34 +45,36 @@ struct TabBarView: View {
                     
                     ForEach(Tab.allCases, id: \.rawValue) { tab in
                         
-                if tab == .profile {
-                    Image(profileImage)
-                        .resizable()
-                        .frame(width: tabBarHeight / 2.2, height: tabBarHeight / 2.2)
-                        .clipShape(Circle())
+                        if tab == .profile {
+                            Image(profileImage)
+                                .resizable()
+                                .frame(width: tabBarHeight / 2.2, height: tabBarHeight / 2.2)
+                                .clipShape(Circle())
                        
-                        .onTapGesture {
-                            selectedTab = tab
+                                .onTapGesture {
+                                    selectedTab = tab
+                                }
+                        } else {
+                            Image(selectedTab == tab ? fillImage : tab.rawValue)
+                                .resizable()
+                                .frame(width: tabBarHeight / 2.2, height: tabBarHeight / 2.2)
+                                .onTapGesture {
+                                    selectedTab = tab
+                                }
                         }
-                } else {
-                        Image(selectedTab == tab ? fillImage : tab.rawValue)
-                        .resizable()
-                        .frame(width: tabBarHeight / 2.2, height: tabBarHeight / 2.2)
-                        .onTapGesture {
-                            selectedTab = tab
+                        if tab == .calendar {
+                            Spacer().frame(width: tabBarHeight)
                         }
-                    }
-                    if tab == .calendar {
-                        Spacer().frame(width: tabBarHeight)
-                    }
                     Spacer()
                         
                 }
             }
             .frame(width: phoneWidth * 0.86 , height: tabBarHeight)
                 
+                
                 HStack {
                     Spacer()
+                    
                     Button {
                     
                     } label: {
