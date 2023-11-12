@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+var phoneHeight = UIScreen.main.bounds.height
+var phoneWidth = UIScreen.main.bounds.width
+var tabBarHeight = UIScreen.main.bounds.height / 14
+var tabBarHeightDivide3 = UIScreen.main.bounds.height / 33
+
+
 enum Tab: String, CaseIterable {
     case meets
     case calendar
@@ -18,10 +24,7 @@ enum Tab: String, CaseIterable {
 struct TabBarView: View {
     @Binding var selectedTab: Tab
     
-    var phoneHeight = UIScreen.main.bounds.height
-    var phoneWidth = UIScreen.main.bounds.width
-    var tabBarHeight = UIScreen.main.bounds.height / 14
-    var tabBarHeightDivide3 = UIScreen.main.bounds.height / 33
+   
     
     //Изображение профиля
     var profileImage = "david-moum-nbqlWhOVu6k-unsplash"
@@ -57,7 +60,7 @@ struct TabBarView: View {
                         } else {
                             Image(selectedTab == tab ? fillImage : tab.rawValue)
                                 .resizable()
-                                .frame(width: tabBarHeight / 2.2, height: tabBarHeight / 2.2)
+                                .frame(width: tabBarHeight / 2.2, height: tab == .chats ? tabBarHeight / 2.3 : tabBarHeight / 2.2 )
                                 .onTapGesture {
                                     selectedTab = tab
                                 }

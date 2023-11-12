@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Geometria-Bold.ttf</string>
+		<string>Geometria-ExtraBold.ttf</string>
+		<string>Geometria-Light.ttf</string>
+		<string>Geometria-LightItalic.ttf</string>
+		<string>Geometria-Medium.ttf</string>
+		<string>NeueMachina-Black.ttf</string>
+		<string>NeueMachina-Bold.ttf</string>
+		<string>NeueMachina-Light.ttf</string>
+		<string>NeueMachina-Medium.ttf</string>
+		<string>NeueMachina-Regular.ttf</string>
+		<string>NeueMachina-Ultrabold.ttf</string>
+		<string>NeueMachina-Ultralight.ttf</string>
+		<string>geometria_bolditalic.ttf</string>
+		<string>Poppins-ExtraLight.ttf</string>
+		<string>Poppins-Light.ttf</string>
+		<string>Poppins-Medium.ttf</string>
+		<string>Poppins-SemiBold.ttf</string>
+		<string>Poppins-Bold.ttf</string>
+	</array>
+</dict>
+</plist>

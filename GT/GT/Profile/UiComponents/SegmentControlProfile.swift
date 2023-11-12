@@ -12,12 +12,12 @@ struct SegmentControlProfile: View {
     private static let ActiveSegmentColor: Color = Color(.tertiarySystemBackground)
     private static let BackgroundColor: Color = Color(.secondarySystemBackground)
     private static let ShadowColor: Color = Color.black.opacity(0.2)
-    private static let TextColor: Color = Color(.secondaryLabel)
-    private static let SelectedTextColor: Color = Color(.white)
+    private static let TextColor: Color = Color(.systemGray3)
+    private static let SelectedTextColor: Color = Color(hex: 0xD2BDA8)
 
     private static let TextFont: Font = .system(size: 12)
     
-    private static let SegmentCornerRadius: CGFloat = 12
+    private static let SegmentCornerRadius: CGFloat = 0
     private static let ShadowRadius: CGFloat = 4
     private static let SegmentXPadding: CGFloat = 16
     private static let SegmentYPadding: CGFloat = 8
@@ -37,8 +37,8 @@ struct SegmentControlProfile: View {
             RoundedRectangle(cornerRadius: SegmentControlProfile.SegmentCornerRadius)
             .foregroundColor(Color(hex: 0xD2BDA8))
 //                .shadow(color: SegmentControlProfile.ShadowColor, radius: SegmentControlProfile.ShadowRadius)
-                .frame(width: self.segmentSize.width, height: self.segmentSize.height)
-                .offset(x: self.computeActiveSegmentHorizontalOffset(), y: 0)
+            .frame(width: self.segmentSize.width, height: self.segmentSize.height * 0.08)
+            .offset(x: self.computeActiveSegmentHorizontalOffset(), y: self.segmentSize.height / 1.7)
                 .animation(Animation.linear(duration: SegmentControlProfile.AnimationDuration))
                 .eraseToAnyView()
     }
@@ -63,7 +63,7 @@ struct SegmentControlProfile: View {
             }
         }
         .padding(SegmentControlProfile.PickerPadding)
-        .background(.black)
+        .background(Color(hex: 0x151515))
         .clipShape(RoundedRectangle(cornerRadius: SegmentControlProfile.SegmentCornerRadius))
     }
 
