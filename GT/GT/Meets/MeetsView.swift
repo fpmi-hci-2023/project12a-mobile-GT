@@ -17,6 +17,7 @@ struct MeetsView: View {
                 MeetsButtons()
                 MeetsLabels()
             }
+            
 
         }
     }
@@ -217,19 +218,41 @@ struct ShareMeetButton: View {
 
 
 struct ActionMenuButton: View {
+    @State var showMenu = false
+    var name = "Tennis Club"
     var body: some View {
         
         HStack {
             Spacer()
             
             Button(action: {
-                // Button action
+                showMenu.toggle()
             }) {
                 Image(systemName: "ellipsis")
                     .resizable()
                     .frame(width: 22, height: 5)
                     .foregroundColor(.white)
             }
+            .confirmationDialog("", isPresented: $showMenu) {
+                Button("Report", role: .destructive) {
+                    
+                }
+                
+            }
         }
     }
 }
+
+
+//struct SwiftUIView: View {
+//    @State private var showAlert = false;
+//
+//    var body: some View {
+//        Button(action: { self.showAlert = true }) {
+//            Text("Show alert")
+//        }.alert(
+//            isPresented: $showAlert,
+//            content: { Alert(title: Text("Hello world")) }
+//        )
+//    }
+//}

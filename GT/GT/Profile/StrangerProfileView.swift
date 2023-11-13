@@ -248,9 +248,9 @@ struct EllipsisButtonStranger: View {
                             .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
                             .foregroundStyle(.ultraThinMaterial)
                         Image(systemName: "ellipsis")
-                            .resizable()
-                            .frame(width: 22, height: 5)
                             .foregroundColor(.white)
+                            .fontWeight(.light)
+                            .font(.system(size: UIScreen.main.bounds.height / 40))
                             .rotationEffect(.degrees(90))
                     }
                 }

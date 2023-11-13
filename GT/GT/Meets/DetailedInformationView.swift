@@ -9,7 +9,11 @@ import SwiftUI
 
 struct DetailedInformationView: View {
     var body: some View {
-        Text("detailed information")
+        ZStack {
+            Color(hex: 0x151515).ignoresSafeArea()
+            HeaderNavigation(navLabel: "Detailed")
+            
+        }
     }
 }
 

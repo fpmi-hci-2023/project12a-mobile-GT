@@ -84,7 +84,7 @@ struct ProfileView: View {
                     
                     HStack {
                         Text("About")
-                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
+                            .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 34))
                             .foregroundStyle(.white)
                             .padding(.top, 8)
                         
@@ -94,7 +94,7 @@ struct ProfileView: View {
                     
                     HStack {
                         Text("AboutAb outAboutA boutA boutAbo utAbo utAbo utAbou tAboutA boutAb outAbout AboutAb outAbou tAbou tAbout Ab outAbou tAbout About AboutAboutA b outAb out")
-                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 54))
+                            .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 54))
                             .foregroundStyle(.white)
                         
                         
@@ -104,7 +104,7 @@ struct ProfileView: View {
                     
                     HStack {
                         Text("Interests")
-                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
+                            .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 34))
                             .foregroundStyle(.white)
                             .padding(.top, 2)
                         
@@ -269,10 +269,9 @@ struct EllipsisButtonProfile: View {
                     .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
                     .foregroundStyle(.ultraThinMaterial)
                 Image(systemName: "arrow.uturn.forward")
-                    .resizable()
-                    .frame(width: 22, height: 22)
                     .foregroundColor(.white)
-                    .rotationEffect(.degrees(0))
+                    .fontWeight(.light)
+                    .font(.system(size: UIScreen.main.bounds.height / 40))
             }
         }
     }
@@ -286,10 +285,9 @@ struct GearButton: View {
                 .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
                 .foregroundStyle(.ultraThinMaterial)
             Image(systemName: "gearshape")
-                .resizable()
-                .frame(width: 25, height: 25)
                 .foregroundColor(.white)
-                .rotationEffect(.degrees(90))
+                .fontWeight(.light)
+                .font(.system(size: UIScreen.main.bounds.height / 40))
         }
         
     }
