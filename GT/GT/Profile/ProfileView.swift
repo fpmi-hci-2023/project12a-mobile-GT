@@ -20,13 +20,12 @@ struct ProfileView: View {
     private let items: [String] = ["Created", "Visited", "Saved"]
     
     var body: some View {
-        ZStack {
-            
-            
-            Color(hex: 0x151515).ignoresSafeArea()
-            VStack {
-                
-         
+        NavigationView {
+            ZStack {
+        
+                Color(hex: 0x151515).ignoresSafeArea()
+                VStack {
+                    
                     Image(avatar)
                         .resizable()
                         .frame(height: phoneWidth * 1.2)
@@ -34,8 +33,10 @@ struct ProfileView: View {
                             VStack {
                                 HStack {
                                     Spacer()
-                                    EllipsisButton()
-                                    GearButton()
+                                    EllipsisButtonProfile()
+                                    NavigationLink(destination: SettingsView()) {
+                                        GearButton()
+                                    }
                                 }
                                 .padding(.top, phoneWidth * 0.15)
                                 .padding(.horizontal, 10)
@@ -45,7 +46,7 @@ struct ProfileView: View {
                                         .frame(height: phoneHeight * 0.16)
                                         .foregroundStyle(
                                             LinearGradient(
-                                                gradient: Gradient(colors: [.black, .clear]),
+                                                gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
                                                 startPoint: .bottom,
                                                 endPoint: .top
                                             )
@@ -55,7 +56,7 @@ struct ProfileView: View {
                                             Text(surname)
                                                 .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
                                                 .foregroundStyle(.white)
-                                                
+                                            
                                             Spacer()
                                         }
                                         .padding(.horizontal, phoneWidth * 0.06)
@@ -64,59 +65,61 @@ struct ProfileView: View {
                                             Text(name)
                                                 .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
                                                 .foregroundStyle(.white)
-                                                
+                                            
                                             Text(age)
                                                 .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 30))
                                                 .foregroundStyle(.white)
                                                 .padding(.leading, 10)
                                                 .padding(.top, 3)
-                                                
+                                            
                                             Spacer()
                                         }
-                                 
+                                        
                                         .padding(.horizontal, phoneWidth * 0.06)
                                         
                                     }
                                 }
                             }
                         }
-                     
-                HStack {
-                    Text("About")
-                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
-                        .foregroundStyle(.white)
-                        .padding(.top, 8)
+                    
+                    HStack {
+                        Text("About")
+                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
+                            .foregroundStyle(.white)
+                            .padding(.top, 8)
                         
+                        Spacer()
+                    }
+                    .padding(.horizontal, phoneWidth * 0.06)
+                    
+                    HStack {
+                        Text("AboutAb outAboutA boutA boutAbo utAbo utAbo utAbou tAboutA boutAb outAbout AboutAb outAbou tAbou tAbout Ab outAbou tAbout About AboutAboutA b outAb out")
+                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 54))
+                            .foregroundStyle(.white)
+                        
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, phoneWidth * 0.06)
+                    
+                    HStack {
+                        Text("Interests")
+                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
+                            .foregroundStyle(.white)
+                            .padding(.top, 2)
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal, phoneWidth * 0.06)
+                    
+                    InterestsView()
+                    
+                    
                     Spacer()
                 }
-                .padding(.horizontal, phoneWidth * 0.06)
-                  
-                HStack {
-                    Text("AboutAb outAboutA boutA boutAbo utAbo utAbo utAbou tAboutA boutAb outAbout AboutAb outAbou tAbou tAbout Ab outAbou tAbout About AboutAboutA b outAb out")
-                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 54))
-                        .foregroundStyle(.white)
-                       
-                        
-                    Spacer()
-                }
-                .padding(.horizontal, phoneWidth * 0.06)
-                
-                HStack {
-                    Text("Interests")
-                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
-                        .foregroundStyle(.white)
-                        .padding(.top, 2)
-                        
-                    Spacer()
-                }
-                .padding(.horizontal, phoneWidth * 0.06)
-                
-                InterestsView()
-                   
-                
-                Spacer()
-            }
-        }.ignoresSafeArea()
+            }.ignoresSafeArea()
+         
+        }
     }
 }
         
@@ -254,7 +257,7 @@ struct InterestsView: View {
 
 
 
-struct EllipsisButton: View {
+struct EllipsisButtonProfile: View {
     var body: some View {
      
         Button {
@@ -265,11 +268,11 @@ struct EllipsisButton: View {
                 Circle()
                     .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
                     .foregroundStyle(.ultraThinMaterial)
-                Image(systemName: "ellipsis")
+                Image(systemName: "arrow.uturn.forward")
                     .resizable()
-                    .frame(width: 22, height: 5)
+                    .frame(width: 22, height: 22)
                     .foregroundColor(.white)
-                    .rotationEffect(.degrees(90))
+                    .rotationEffect(.degrees(0))
             }
         }
     }
@@ -278,21 +281,17 @@ struct EllipsisButton: View {
 struct GearButton: View {
     var body: some View {
         
-        Button {
-            //переход на экран настроек
-            
-        } label: {
-            ZStack {
-                Circle()
-                    .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
-                    .foregroundStyle(.ultraThinMaterial)
-                Image(systemName: "gearshape")
-                    .resizable()
-                    .frame(width: 25, height: 25)
-                    .foregroundColor(.white)
-                    .rotationEffect(.degrees(90))
-            }
+        ZStack {
+            Circle()
+                .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
+                .foregroundStyle(.ultraThinMaterial)
+            Image(systemName: "gearshape")
+                .resizable()
+                .frame(width: 25, height: 25)
+                .foregroundColor(.white)
+                .rotationEffect(.degrees(90))
         }
+        
     }
 }
 
@@ -329,8 +328,8 @@ struct CardView: View {
                 Spacer()
                 
                 HStack {
-                Text(title)
-                    .foregroundColor(.white)
+                    Text(title)
+                        .foregroundColor(.white)
                     Spacer()
                 }
             }

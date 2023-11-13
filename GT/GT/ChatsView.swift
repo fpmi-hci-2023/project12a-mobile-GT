@@ -9,40 +9,36 @@ import SwiftUI
 
 struct ChatsView: View {
     @State private var index: Int = 0
-
-      var body: some View {
-          
-          
-          TabView(selection: self.$index) {
-              ZStack {
-                  FirstScreen()
-                      .tag(0)
-                      .onTapGesture {
-                          withAnimation(.default) {
-                              self.index = 1
-                          }
-                      }
-                  
-                  SecondScreen()
-                      .tag(1)
-                      .onTapGesture {
-                          withAnimation(.default) {
-                              self.index = 0
-                          }
-                      }
-              }
-             
-          }
-          
- 
-      }
-  }
+    
+    var body: some View {
+        
+        
+        TabView(selection: self.$index) {
+            ZStack {
+                FirstScreen()
+                    .tag(0)
+                    .onTapGesture {
+                        withAnimation(.default) {
+                            self.index = 1
+                        }
+                    }
+                
+                SecondScreen()
+                    .tag(1)
+                    .onTapGesture {
+                        withAnimation(.default) {
+                            self.index = 0
+                        }
+                    }
+            }
+            
+        }
+    }
+}
 
 
 
 struct FirstScreen: View {
- 
-
     var body: some View {
         // Код для вашего первого экрана
         Text("First Screen")
@@ -54,8 +50,6 @@ struct FirstScreen: View {
 }
 
 struct SecondScreen: View {
-
-
     var body: some View {
         // Код для вашего второго экрана
         Text("Second Screen")
