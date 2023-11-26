@@ -50,6 +50,7 @@
 		35B793832AEB44CD000D6780 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B793822AEB44CD000D6780 /* ColorExtension.swift */; };
 		35B793872AEB4792000D6780 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B793862AEB4792000D6780 /* ProfileView.swift */; };
 		35B793892AEB479C000D6780 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B793882AEB479C000D6780 /* ChatsView.swift */; };
+		35BB32522B13ACE0003F44A3 /* MeetsControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB32512B13ACE0003F44A3 /* MeetsControls.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		35B793822AEB44CD000D6780 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		35B793862AEB4792000D6780 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		35B793882AEB479C000D6780 /* ChatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsView.swift; sourceTree = "<group>"; };
+		35BB32512B13ACE0003F44A3 /* MeetsControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetsControls.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,8 @@
 		353F4A412B020CA800915B04 /* Meets */ = {
 			isa = PBXGroup;
 			children = (
+				353F4A922B03A57900915B04 /* Swiper.swift */,
+				35BB32512B13ACE0003F44A3 /* MeetsControls.swift */,
 				353F4A3D2B00E9C400915B04 /* MeetsView.swift */,
 				353F4A3F2B0139EB00915B04 /* MeetFiltersView.swift */,
 				359E27F82AF5C2A100F95276 /* DetailedInformationView.swift */,
@@ -229,7 +233,6 @@
 				355A02912AFDCDDF007B6C1E /* Info.plist */,
 				35B426402AE87CA900ECF0AB /* GTApp.swift */,
 				35B426422AE87CA900ECF0AB /* ContentView.swift */,
-				353F4A922B03A57900915B04 /* Swiper.swift */,
 				35B426442AE87CAB00ECF0AB /* Assets.xcassets */,
 				35B426462AE87CAB00ECF0AB /* Preview Content */,
 				35B793802AEB446C000D6780 /* TabBarView.swift */,
@@ -349,6 +352,7 @@
 				353F4A3E2B00E9C400915B04 /* MeetsView.swift in Sources */,
 				353F4A462B02227C00915B04 /* UIUtils.swift in Sources */,
 				355A02A52AFDD1D8007B6C1E /* StrangerProfileView.swift in Sources */,
+				35BB32522B13ACE0003F44A3 /* MeetsControls.swift in Sources */,
 				35B426432AE87CA900ECF0AB /* ContentView.swift in Sources */,
 				35B793812AEB446C000D6780 /* TabBarView.swift in Sources */,
 				353F4A9B2B050ACD00915B04 /* UserModel.swift in Sources */,

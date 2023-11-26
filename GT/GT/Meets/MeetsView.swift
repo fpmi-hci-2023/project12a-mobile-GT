@@ -8,27 +8,71 @@
 import SwiftUI
 
 struct MeetsView: View {
-    var meets: Meet
-    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        NavigationView {
-            
-            ZStack {
-//                MeetsDataBase()
-                ReelsContainerView()
-                MeetsLabels(meets: meets)
-                MeetsButtons()
-            }
-            
-
+        //        @State var selectedIndex = 0
+        ZStack {
+            VideoView()
+            FilterButton()
         }
+        
     }
+
+
+@ViewBuilder
+func VideoView()->some View {
+//        var meets: Meet
+    GeometryReader { proxy in
+        let size = proxy.size
+        
+        TabView {
+            ForEach(DummyPhoto.photos, id: \.id) { tiktok in
+                tiktok.photo
+                    .resizable().clipped()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: size.width)
+                    
+                    .overlay {
+                        MeetsControls()
+                            .padding(.bottom, phoneHeight / 8)
+                    }
+                    .rotationEffect(.init(degrees: -90))
+                    .ignoresSafeArea(.all)
+                    
+                
+            }
+        }
+        .rotationEffect(.init(degrees: 90))
+        .frame(width: size.height)
+        
+        .tabViewStyle(.page(indexDisplayMode: .never))
+        .frame(width: size.width)
+    }
+    .ignoresSafeArea(.all)
 }
+}
+//struct MeetsView: View {
+//
+//    @Environment(\.presentationMode) var presentationMode
+//    var body: some View {
+//        NavigationView {
+//            
+//            ZStack {
+//                //                MeetsDataBase()
+//                Swiper()
+//                FilterButton()
+//                //                MeetsLabels(meets: meets)
+//                //                MeetsButtons()
+//            }
+//        
+//        }
+//    }
+//}
 
 
 #Preview {
-    MeetsView(meets: Meet(image: "david-moum-nbqlWhOVu6k-unsplash", meetName: "Play tennis", description: "I want to play tennis with great people.", creator: User(userName: "Anna Chereshnya", userImage: "ava"), date: "17 november", time: "12:00", address: "Minsk"))
+    MeetsView()
 }
+
 
 struct MeetsDataBase: View {
     var body: some View {
@@ -93,19 +137,21 @@ struct MeetsButtons: View {
 
 
 struct MeetsLabels: View {
-    var meets: Meet
+//    var meets: Meet
     var body: some View {
         VStack(spacing: 0) {
             
             HStack {
-                Text(meets.meetName)
+//                Text(meets.meetName)
+                Text("Name")
                     .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 28))
                     .foregroundStyle(.white)
                 Spacer()
             }
             .padding(.top, UIScreen.main.bounds.height / 1.5)
             HStack {
-                Text(meets.address)
+//                Text(meets.address)
+                Text("Address")
                     .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 46))
                     .foregroundStyle(.white)
                 Spacer()
@@ -140,34 +186,37 @@ struct OrganisatorProfile: View {
 struct FilterButton: View {
     @State var showingFilters = false
     var body: some View {
-        
-        HStack {
-            Spacer()
-            
-            Button(action: {
-                // Button action
-                showingFilters.toggle()
-            }) {
-                ZStack {
-                    Rectangle()
-                        .cornerRadius(10)
-                        .frame(width: phoneWidth / 4 , height: phoneWidth / 12)
-                        .foregroundColor(.black)
-                        .opacity(0.2)
-                    
-                    HStack(spacing: 0) {
-                        Image(systemName: "slider.horizontal.3")
-                            .foregroundColor(.white)
-                            .frame(width: 26)
+        VStack {
+            HStack {
+                Spacer()
+                
+                Button(action: {
+                    // Button action
+                    showingFilters.toggle()
+                }) {
+                    ZStack {
+                        Rectangle()
+                            .cornerRadius(10)
+                            .frame(width: phoneWidth / 4 , height: phoneWidth / 12)
+                            .foregroundColor(.black)
+                            .opacity(0.2)
                         
-                        Text("Filters")
-                            .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 50))
-                            .foregroundColor(.white)
-                        
+                        HStack(spacing: 0) {
+                            Image(systemName: "slider.horizontal.3")
+                                .foregroundColor(.white)
+                                .frame(width: 26)
+                            
+                            Text("Filters")
+                                .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 50))
+                                .foregroundColor(.white)
+                            
+                        }
                     }
                 }
             }
+            Spacer()
         }
+        .padding(.horizontal)
         .sheet(isPresented: $showingFilters) {
             MeetFiltersView()
             

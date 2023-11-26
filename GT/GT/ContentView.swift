@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedTab: Tab = .meets
-    var meets: Meet
+    @State var selectedTab: Tab = .meets
     var body: some View {
         NavigationView {
             ZStack {
 
                 if selectedTab == .meets {
-                    MeetsView(meets: meets)
+                    MeetsView()
                 } else if selectedTab == .calendar {
                     CalendarView()
                 } else if selectedTab == .chats {
                     ChatsView()
-                } else if selectedTab == .profile { 
+                } else if selectedTab == .profile {
                     ProfileView()
                 }
                 TabBarView(selectedTab: $selectedTab)
@@ -49,5 +48,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView(meets: Meet(image: "david-moum-nbqlWhOVu6k-unsplash", meetName: "Play tennis", description: "I want to play tennis with great people.", creator: User(userName: "Anna Chereshnya", userImage: "ava"), date: "17 november", time: "12:00", address: "Minsk"))
+    ContentView()
 }

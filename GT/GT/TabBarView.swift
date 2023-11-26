@@ -24,21 +24,19 @@ enum Tab: String, CaseIterable {
 struct TabBarView: View {
     @Binding var selectedTab: Tab
     
-   
-    
     //Изображение профиля
     var profileImage = "david-moum-nbqlWhOVu6k-unsplash"
     
     private var fillImage: String {
         selectedTab.rawValue + ".fill"
     }
-
-
+    
+    
     var body: some View {
         VStack {
             Spacer()
             ZStack {
-              Rectangle()
+                Rectangle()
                     .frame(width: phoneWidth * 0.86 , height: tabBarHeight)
                     .foregroundStyle(.ultraThinMaterial)
                     .cornerRadius(40)
@@ -53,7 +51,7 @@ struct TabBarView: View {
                                 .resizable()
                                 .frame(width: tabBarHeight / 2.2, height: tabBarHeight / 2.2)
                                 .clipShape(Circle())
-                       
+                            
                                 .onTapGesture {
                                     selectedTab = tab
                                 }
@@ -68,18 +66,18 @@ struct TabBarView: View {
                         if tab == .calendar {
                             Spacer().frame(width: tabBarHeight)
                         }
-                    Spacer()
+                        Spacer()
                         
+                    }
                 }
-            }
-            .frame(width: phoneWidth * 0.86 , height: tabBarHeight)
+                .frame(width: phoneWidth * 0.86 , height: tabBarHeight)
                 
                 
                 HStack {
                     Spacer()
                     
                     Button {
-                    
+                        
                     } label: {
                         ZStack {
                             Rectangle()
