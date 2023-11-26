@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct MeetsView: View {
+    var meets: Meet
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
             
             ZStack {
-                MeetsDataBase()
+//                MeetsDataBase()
+                ReelsContainerView()
+                MeetsLabels(meets: meets)
                 MeetsButtons()
-                MeetsLabels()
             }
             
 
@@ -25,7 +27,7 @@ struct MeetsView: View {
 
 
 #Preview {
-    MeetsView()
+    MeetsView(meets: Meet(image: "david-moum-nbqlWhOVu6k-unsplash", meetName: "Play tennis", description: "I want to play tennis with great people.", creator: User(userName: "Anna Chereshnya", userImage: "ava"), date: "17 november", time: "12:00", address: "Minsk"))
 }
 
 struct MeetsDataBase: View {
@@ -91,21 +93,19 @@ struct MeetsButtons: View {
 
 
 struct MeetsLabels: View {
-    // Meet's name
-    var name = "Tennis Club"
-    var adress = "Minsk, Belarus"
+    var meets: Meet
     var body: some View {
         VStack(spacing: 0) {
             
             HStack {
-                Text(name)
+                Text(meets.meetName)
                     .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 28))
                     .foregroundStyle(.white)
                 Spacer()
             }
             .padding(.top, UIScreen.main.bounds.height / 1.5)
             HStack {
-                Text(adress)
+                Text(meets.address)
                     .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 46))
                     .foregroundStyle(.white)
                 Spacer()
@@ -154,10 +154,6 @@ struct FilterButton: View {
                         .frame(width: phoneWidth / 4 , height: phoneWidth / 12)
                         .foregroundColor(.black)
                         .opacity(0.2)
-                        .background(
-                            RoundedRectangle(cornerRadius: 10)
-                                .strokeBorder(.ultraThinMaterial, lineWidth: 2)
-                        )
                     
                     HStack(spacing: 0) {
                         Image(systemName: "slider.horizontal.3")
@@ -206,6 +202,7 @@ struct ShareMeetButton: View {
             
             Button(action: {
                 // Button action
+                print("ShareMeetButton")
             }) {
                 Image(systemName: "square.and.arrow.up.fill")
                     .resizable()
@@ -219,7 +216,6 @@ struct ShareMeetButton: View {
 
 struct ActionMenuButton: View {
     @State var showMenu = false
-    var name = "Tennis Club"
     var body: some View {
         
         HStack {
@@ -228,14 +224,21 @@ struct ActionMenuButton: View {
             Button(action: {
                 showMenu.toggle()
             }) {
-                Image(systemName: "ellipsis")
-                    .resizable()
-                    .frame(width: 22, height: 5)
-                    .foregroundColor(.white)
+                ZStack {
+                    Image(systemName: "ellipsis")
+                        .resizable()
+                        .frame(width: 22, height: 5)
+                        .foregroundColor(.white)
+                    Rectangle()
+                        .foregroundStyle(.clear)
+                        .frame(width: 22, height: 22)
+                }
             }
+            
             .confirmationDialog("", isPresented: $showMenu) {
                 Button("Report", role: .destructive) {
-                    
+                    //Репорт на мероприятие
+                    //открывать алерт в котором пользователь пишет причину
                 }
                 
             }
@@ -252,7 +255,7 @@ struct ActionMenuButton: View {
 //            Text("Show alert")
 //        }.alert(
 //            isPresented: $showAlert,
-//            content: { Alert(title: Text("Hello world")) }
+//            content: { Alert(titzle: Text("Hello world")) }
 //        )
 //    }
 //}

@@ -35,11 +35,10 @@
 		353F4A402B0139EB00915B04 /* MeetFiltersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A3F2B0139EB00915B04 /* MeetFiltersView.swift */; };
 		353F4A442B020CE000915B04 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A432B020CE000915B04 /* SettingsView.swift */; };
 		353F4A462B02227C00915B04 /* UIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A452B02227C00915B04 /* UIUtils.swift */; };
-		355A029D2AFDCF27007B6C1E /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 355A02982AFDCF27007B6C1E /* Poppins-Light.ttf */; };
-		355A029E2AFDCF27007B6C1E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 355A02992AFDCF27007B6C1E /* Poppins-SemiBold.ttf */; };
-		355A029F2AFDCF27007B6C1E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 355A029A2AFDCF27007B6C1E /* Poppins-Bold.ttf */; };
-		355A02A02AFDCF27007B6C1E /* Poppins-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 355A029B2AFDCF27007B6C1E /* Poppins-ExtraLight.ttf */; };
-		355A02A12AFDCF27007B6C1E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 355A029C2AFDCF27007B6C1E /* Poppins-Medium.ttf */; };
+		353F4A932B03A57900915B04 /* Swiper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A922B03A57900915B04 /* Swiper.swift */; };
+		353F4A982B04FFBA00915B04 /* MeetsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A972B04FFBA00915B04 /* MeetsData.swift */; };
+		353F4A9B2B050ACD00915B04 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A9A2B050ACD00915B04 /* UserModel.swift */; };
+		353F4A9D2B050AF600915B04 /* MeetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A9C2B050AF600915B04 /* MeetModel.swift */; };
 		355A02A52AFDD1D8007B6C1E /* StrangerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355A02A42AFDD1D8007B6C1E /* StrangerProfileView.swift */; };
 		359E27F92AF5C2A100F95276 /* DetailedInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359E27F82AF5C2A100F95276 /* DetailedInformationView.swift */; };
 		359E27FB2AF6397700F95276 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359E27FA2AF6397700F95276 /* CalendarView.swift */; };
@@ -82,12 +81,11 @@
 		353F4A3F2B0139EB00915B04 /* MeetFiltersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetFiltersView.swift; sourceTree = "<group>"; };
 		353F4A432B020CE000915B04 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		353F4A452B02227C00915B04 /* UIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIUtils.swift; sourceTree = "<group>"; };
+		353F4A922B03A57900915B04 /* Swiper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swiper.swift; sourceTree = "<group>"; };
+		353F4A972B04FFBA00915B04 /* MeetsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetsData.swift; sourceTree = "<group>"; };
+		353F4A9A2B050ACD00915B04 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		353F4A9C2B050AF600915B04 /* MeetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetModel.swift; sourceTree = "<group>"; };
 		355A02912AFDCDDF007B6C1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		355A02982AFDCF27007B6C1E /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
-		355A02992AFDCF27007B6C1E /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		355A029A2AFDCF27007B6C1E /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
-		355A029B2AFDCF27007B6C1E /* Poppins-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLight.ttf"; sourceTree = "<group>"; };
-		355A029C2AFDCF27007B6C1E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		355A02A42AFDD1D8007B6C1E /* StrangerProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrangerProfileView.swift; sourceTree = "<group>"; };
 		359E27F82AF5C2A100F95276 /* DetailedInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedInformationView.swift; sourceTree = "<group>"; };
 		359E27FA2AF6397700F95276 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
@@ -150,6 +148,32 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		353F4A472B02BEC600915B04 /* UiUtils */ = {
+			isa = PBXGroup;
+			children = (
+				35B793822AEB44CD000D6780 /* ColorExtension.swift */,
+				353F4A452B02227C00915B04 /* UIUtils.swift */,
+			);
+			path = UiUtils;
+			sourceTree = "<group>";
+		};
+		353F4A942B04FF0200915B04 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				353F4A972B04FFBA00915B04 /* MeetsData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		353F4A992B04FFDE00915B04 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				353F4A9A2B050ACD00915B04 /* UserModel.swift */,
+				353F4A9C2B050AF600915B04 /* MeetModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		355A02922AFDCEFF007B6C1E /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,11 +200,6 @@
 				353F49F32B00D58500915B04 /* NeueMachina-Regular.ttf */,
 				353F49F82B00D58600915B04 /* NeueMachina-Ultrabold.ttf */,
 				353F49F92B00D58600915B04 /* NeueMachina-Ultralight.ttf */,
-				355A029A2AFDCF27007B6C1E /* Poppins-Bold.ttf */,
-				355A029B2AFDCF27007B6C1E /* Poppins-ExtraLight.ttf */,
-				355A02982AFDCF27007B6C1E /* Poppins-Light.ttf */,
-				355A029C2AFDCF27007B6C1E /* Poppins-Medium.ttf */,
-				355A02992AFDCF27007B6C1E /* Poppins-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -204,10 +223,13 @@
 		35B4263F2AE87CA900ECF0AB /* GT */ = {
 			isa = PBXGroup;
 			children = (
+				353F4A992B04FFDE00915B04 /* Model */,
+				353F4A942B04FF0200915B04 /* Data */,
 				355A02922AFDCEFF007B6C1E /* Fonts */,
 				355A02912AFDCDDF007B6C1E /* Info.plist */,
 				35B426402AE87CA900ECF0AB /* GTApp.swift */,
 				35B426422AE87CA900ECF0AB /* ContentView.swift */,
+				353F4A922B03A57900915B04 /* Swiper.swift */,
 				35B426442AE87CAB00ECF0AB /* Assets.xcassets */,
 				35B426462AE87CAB00ECF0AB /* Preview Content */,
 				35B793802AEB446C000D6780 /* TabBarView.swift */,
@@ -215,8 +237,7 @@
 				353A917F2AF88788002D6766 /* Profile */,
 				35B793882AEB479C000D6780 /* ChatsView.swift */,
 				353F4A412B020CA800915B04 /* Meets */,
-				35B793822AEB44CD000D6780 /* ColorExtension.swift */,
-				353F4A452B02227C00915B04 /* UIUtils.swift */,
+				353F4A472B02BEC600915B04 /* UiUtils */,
 			);
 			path = GT;
 			sourceTree = "<group>";
@@ -291,14 +312,12 @@
 				353F4A382B00E8A100915B04 /* Geometria-Heavy.ttf in Resources */,
 				353F49FA2B00D58600915B04 /* NeueMachina-Regular.ttf in Resources */,
 				353F4A2D2B00E8A100915B04 /* Geometria-Light.ttf in Resources */,
-				355A02A02AFDCF27007B6C1E /* Poppins-ExtraLight.ttf in Resources */,
 				353F49FC2B00D58600915B04 /* NeueMachina-Light.ttf in Resources */,
 				353F4A2F2B00E8A100915B04 /* Geometria-ExtraBold.ttf in Resources */,
 				353F4A322B00E8A100915B04 /* Geometria-BoldItalic.ttf in Resources */,
 				353F4A372B00E8A100915B04 /* Geometria-ExtraBoldItalic.ttf in Resources */,
 				353F4A342B00E8A100915B04 /* Geometria-HeavyItalic.ttf in Resources */,
 				353F4A352B00E8A100915B04 /* Geometria-Thin.ttf in Resources */,
-				355A02A12AFDCF27007B6C1E /* Poppins-Medium.ttf in Resources */,
 				353F4A362B00E8A100915B04 /* Geometria-Bold.ttf in Resources */,
 				353F49FF2B00D58600915B04 /* NeueMachina-Ultrabold.ttf in Resources */,
 				353F4A002B00D58600915B04 /* NeueMachina-Ultralight.ttf in Resources */,
@@ -307,14 +326,11 @@
 				353F4A3C2B00E8A100915B04 /* Geometria-ThinItalic.ttf in Resources */,
 				353F4A332B00E8A100915B04 /* Geometria-MediumItalic.ttf in Resources */,
 				353F4A3A2B00E8A100915B04 /* Geometria.ttf in Resources */,
-				355A029E2AFDCF27007B6C1E /* Poppins-SemiBold.ttf in Resources */,
 				353F49FE2B00D58600915B04 /* NeueMachina-Medium.ttf in Resources */,
 				353F4A2E2B00E8A100915B04 /* Geometria-ExtraLight.ttf in Resources */,
-				355A029F2AFDCF27007B6C1E /* Poppins-Bold.ttf in Resources */,
 				353F49FB2B00D58600915B04 /* NeueMachina-Black.ttf in Resources */,
 				353F49FD2B00D58600915B04 /* NeueMachina-Bold.ttf in Resources */,
 				353F4A3B2B00E8A100915B04 /* Geometria-Italic.ttf in Resources */,
-				355A029D2AFDCF27007B6C1E /* Poppins-Light.ttf in Resources */,
 				353F4A302B00E8A100915B04 /* Geometria-ExtraLightItalic.ttf in Resources */,
 				35B426452AE87CAB00ECF0AB /* Assets.xcassets in Resources */,
 			);
@@ -329,16 +345,20 @@
 			files = (
 				35B793892AEB479C000D6780 /* ChatsView.swift in Sources */,
 				353A917E2AF885B4002D6766 /* SegmentControlProfile.swift in Sources */,
+				353F4A982B04FFBA00915B04 /* MeetsData.swift in Sources */,
 				353F4A3E2B00E9C400915B04 /* MeetsView.swift in Sources */,
 				353F4A462B02227C00915B04 /* UIUtils.swift in Sources */,
 				355A02A52AFDD1D8007B6C1E /* StrangerProfileView.swift in Sources */,
 				35B426432AE87CA900ECF0AB /* ContentView.swift in Sources */,
 				35B793812AEB446C000D6780 /* TabBarView.swift in Sources */,
+				353F4A9B2B050ACD00915B04 /* UserModel.swift in Sources */,
 				35B426412AE87CA900ECF0AB /* GTApp.swift in Sources */,
 				359E27FB2AF6397700F95276 /* CalendarView.swift in Sources */,
 				359E27F92AF5C2A100F95276 /* DetailedInformationView.swift in Sources */,
+				353F4A9D2B050AF600915B04 /* MeetModel.swift in Sources */,
 				35B793872AEB4792000D6780 /* ProfileView.swift in Sources */,
 				35B793832AEB44CD000D6780 /* ColorExtension.swift in Sources */,
+				353F4A932B03A57900915B04 /* Swiper.swift in Sources */,
 				353F4A402B0139EB00915B04 /* MeetFiltersView.swift in Sources */,
 				353F4A442B020CE000915B04 /* SettingsView.swift in Sources */,
 			);
