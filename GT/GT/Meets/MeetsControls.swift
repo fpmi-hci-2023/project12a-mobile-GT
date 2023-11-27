@@ -8,29 +8,47 @@
 import SwiftUI
 
 struct MeetsControls: View {
+    @State var time: String
+    @State var date: String
+    @State var imageName: String
+    @State var meetName: String
+    @State var address: String
+    @State var description: String
     var body: some View {
         VStack {
+            
+            NavigationLink(destination: DetailedInformationView(time: time,
+                                                                date: date,
+                                                                imageName: imageName,
+                                                                meetName: meetName,
+                                                                address: address,
+                                                                description: description)) {
+                DetailedViewArrow()
+            }
+            .padding(.top, UIScreen.main.bounds.height / 2.3)
+            .padding(.trailing, phoneWidth / 22)
+            
             
             //Переход на профиль организатора
             NavigationLink(destination: StrangerProfileView()) {
                 OrganisatorProfile()
             }
-            .padding(.top, UIScreen.main.bounds.height / 1.8)
+            .padding(.top, phoneWidth / 10)
             .padding(.trailing, phoneWidth / 40)
             
             //Сохранить в избранное
             SaveButton()
-                .padding(.top, 40)
+                .padding(.top, phoneWidth / 10)
                 .padding(.trailing, phoneWidth / 15)
             
             //Поделиться
             ShareMeetButton()
-                .padding(.top, 20)
+                .padding(.top, phoneWidth / 14)
                 .padding(.trailing, phoneWidth / 16)
             
             //Меню троеточие
             ActionMenuButton()
-                .padding(.top, 26)
+                .padding(.top, phoneWidth / 16)
                 .padding(.trailing, phoneWidth / 16)
             
             Spacer()
@@ -90,14 +108,14 @@ struct OrganisatorProfile: View {
         
         HStack {
             Spacer()
-                Image("ava")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(Circle())
-                    .overlay(
-                        Circle().stroke(Color.white, lineWidth: 1.6)
-                    )
+            Image("ava")
+                .resizable()
+                .frame(width: 50, height: 50)
+                .aspectRatio(contentMode: .fit)
+                .clipShape(Circle())
+                .overlay(
+                    Circle().stroke(Color.white, lineWidth: 1.6)
+                )
         }
     }
 }
@@ -176,9 +194,28 @@ struct ActionMenuButton: View {
 }
 
 
-#Preview {
-    MeetsControls()
+struct DetailedViewArrow: View {
+    var body: some View {
+        HStack {
+            Spacer()
+            ZStack {
+                Image(systemName: "chevron.backward")
+                    .foregroundStyle(.white)
+                    .fontWeight(.light)
+                    .font(.system(size: UIScreen.main.bounds.height / 40))
+                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.01)
+                    .rotationEffect(.degrees(180))
+                Rectangle()
+                    .foregroundStyle(.clear)
+                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.1)
+            }
+        }
+    }
 }
+
+//#Preview {
+//    MeetsControls()
+//}
 
 
 //struct MeetsButton: Identifiable, Hashable {

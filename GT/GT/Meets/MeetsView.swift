@@ -101,9 +101,9 @@ struct ImageView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                        .offset(y: -4)
+                        .offset(y: -5)
                     MeetsLabels(meetName: meetData.meetName, address: meetData.address, description: meetData.description)
-                    MeetsControls()
+                    MeetsControls(time: meetData.time, date: meetData.date, imageName: meetData.imageName, meetName: meetData.meetName, address: meetData.address, description: meetData.description)
                     
                 }
                 

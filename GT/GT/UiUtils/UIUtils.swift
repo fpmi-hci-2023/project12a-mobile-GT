@@ -11,18 +11,23 @@ import SwiftUI
 struct CloseViewArrow: View {
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
-                Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "chevron.backward")
-                        .foregroundStyle(.white)
-                        .fontWeight(.light)
-                        .font(.system(size: UIScreen.main.bounds.height / 40))
-                        .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.01)
-                       
-                }
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }) {
+            ZStack {
+                Image(systemName: "chevron.backward")
+                    .foregroundStyle(.white)
+                    .fontWeight(.light)
+                    .font(.system(size: UIScreen.main.bounds.height / 40))
+                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.01)
+                Rectangle()
+                    .foregroundStyle(.clear)
+                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.1)
+            }
+        }
     }
 }
+
 
 
 struct HeaderNavigation: View {

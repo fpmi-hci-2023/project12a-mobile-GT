@@ -227,10 +227,10 @@
 		35B4263F2AE87CA900ECF0AB /* GT */ = {
 			isa = PBXGroup;
 			children = (
+				355A02912AFDCDDF007B6C1E /* Info.plist */,
 				355A02922AFDCEFF007B6C1E /* Fonts */,
 				353F4A992B04FFDE00915B04 /* Model */,
 				353F4A942B04FF0200915B04 /* Data */,
-				355A02912AFDCDDF007B6C1E /* Info.plist */,
 				35B426402AE87CA900ECF0AB /* GTApp.swift */,
 				35B426422AE87CA900ECF0AB /* ContentView.swift */,
 				35B426442AE87CAB00ECF0AB /* Assets.xcassets */,
@@ -505,8 +505,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -536,8 +536,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
