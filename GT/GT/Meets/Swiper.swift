@@ -4,55 +4,55 @@
 //  Created by Vlad Muraveiko on 14.11.2023.
 //
 
-import SwiftUI
-
-struct Swiper : View {
-    var body: some View {
-//        @ObservedObject var viewModel = TikTokViewModel()
-//        @State var isShowingComments = false
-        @State var selectedIndex = 0
-        ZStack {
-            SwiperView()
-        }
-        
-    }
-    
-    
-    @ViewBuilder
-    func SwiperView()->some View {
-        GeometryReader { proxy in
-            let size = proxy.size
-            
-            TabView {
-                ForEach(DummyPhoto.photos, id: \.id) { tiktok in
-                    tiktok.photo
-                        .resizable().clipped()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: size.width)
-                        .clipped()
-                        .overlay {
-                            MeetsControls()
-//                            MeetsControls(commentsButtonAction: {isShowingComments = true})
-                                .padding(.bottom, phoneHeight / 8)
-                        }
-                        .rotationEffect(.init(degrees: -90))
-                        .ignoresSafeArea(.all)
-                    
-                    
-                }
-            }
-            .rotationEffect(.init(degrees: 90))
-            .frame(width: size.height)
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(width: size.width)
-        }
-        .ignoresSafeArea(.all)
-    }
-}
-
-#Preview {
-    Swiper()
-}
+//import SwiftUI
+//
+//struct Swiper : View {
+//    var body: some View {
+////        @ObservedObject var viewModel = TikTokViewModel()
+////        @State var isShowingComments = false
+//        @State var selectedIndex = 0
+//        ZStack {
+//            SwiperView()
+//        }
+//        
+//    }
+//    
+//    
+//    @ViewBuilder
+//    func SwiperView()->some View {
+//        GeometryReader { proxy in
+//            let size = proxy.size
+//            
+//            TabView {
+//                ForEach(DummyPhoto.photos, id: \.id) { tiktok in
+//                    tiktok.photo
+//                        .resizable().clipped()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: size.width)
+//                        .clipped()
+//                        .overlay {
+//                            MeetsControls()
+////                            MeetsControls(commentsButtonAction: {isShowingComments = true})
+//                                .padding(.bottom, phoneHeight / 8)
+//                        }
+//                        .rotationEffect(.init(degrees: -90))
+//                        .ignoresSafeArea(.all)
+//                    
+//                    
+//                }
+//            }
+//            .rotationEffect(.init(degrees: 90))
+//            .frame(width: size.height)
+//            .tabViewStyle(.page(indexDisplayMode: .never))
+//            .frame(width: size.width)
+//        }
+//        .ignoresSafeArea(.all)
+//    }
+//}
+//
+//#Preview {
+//    Swiper()
+//}
 
 
 

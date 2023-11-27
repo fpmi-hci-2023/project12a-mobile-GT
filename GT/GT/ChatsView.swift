@@ -9,50 +9,12 @@ import SwiftUI
 
 struct ChatsView: View {
     var body: some View {
-//        @State var selectedIndex = 0
         ZStack {
-            VideoView()
+            Text("Chats")
         }
     
-    }
-    
-    
-    @ViewBuilder
-    func VideoView()->some View {
-//        var meets: Meet
-        GeometryReader { proxy in
-            let size = proxy.size
-            
-            TabView {
-                ForEach(DummyPhoto.photos, id: \.id) { tiktok in
-                    tiktok.photo
-                        .resizable().clipped()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: size.width)
-                        
-//                        .overlay {
-//                            TikTokControls(commentsButtonAction: {isShowingComments = true})
-//                                .padding(.bottom)
-//                        }
-                        .rotationEffect(.init(degrees: -90))
-                        .ignoresSafeArea(.all)
-                        
-                    
-                }
-            }
-            .rotationEffect(.init(degrees: 90))
-            .frame(width: size.height)
-            .tabViewStyle(.page(indexDisplayMode: .never))
-            .frame(width: size.width)
-        }
-        .ignoresSafeArea(.all)
     }
 }
-
-
-
-
-
 
 #Preview {
     ChatsView()
