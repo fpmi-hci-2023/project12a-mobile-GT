@@ -8,16 +8,20 @@
 import SwiftUI
 
 struct MeetsView: View {
+   
+    
     @State private var index = 0
     @State private var top = 0
     @State private var data = [
-                                ImageData(id: 1, imageName: "ava", isPlaying: false),
-                                ImageData(id: 2, imageName: "ava", isPlaying: false),
-                                ImageData(id: 3, imageName: "david-moum-nbqlWhOVu6k-unsplash", isPlaying: false),
-                                ImageData(id: 4, imageName: "ava", isPlaying: false),
-                                ImageData(id: 5, imageName: "david-moum-nbqlWhOVu6k-unsplash", isPlaying: false),
-                                ImageData(id: 6, imageName: "ava", isPlaying: false)
+        MeetData(id: 1, imageName: "test2", meetName: "Play tennis", description: "I wanna play tennis I wanna play tennis I wanna play tennis I wanna play tennis", date: "April, 19", time: "14:00", address: "Yakub Kolas Street"),
+        MeetData(id: 2, imageName: "david-moum-nbqlWhOVu6k-unsplash", meetName: "Afterparty", description: "I wanna disco", date: "April, 19", time: "14:00", address: "Nemiga 7"),
+        MeetData(id: 3, imageName: "ava", meetName: "Play chess", description: "I wanna play chess I wanna play chess I wanna play chess", date: "June, 27", time: "10:00", address: "Yakub Kolas Street"),
+        MeetData(id: 4, imageName: "test2", meetName: "Play golf", description: "I wanna play golf I wanna play golf I wanna play golf ", date: "April, 19", time: "14:00", address: "Yakub Kolas Street 23"),
+        MeetData(id: 5, imageName: "ava", meetName: "Business lecture", description: "I wanna Business lecture I wanna Business lecture", date: "November, 12", time: "12:00", address: "Minsk"),
+        MeetData(id: 6, imageName: "david-moum-nbqlWhOVu6k-unsplash", meetName: "Play ping-pong", description: "I wanna play ping-pong", date: "April, 19", time: "18:00", address: "Yakub Kolas Street"),
+        MeetData(id: 7, imageName: "ava", meetName: "Karaoke", description: "I wanna play tennis", date: "December, 8", time: "11:00", address: "Yakub Kolas Street"),
                              ]
+    
     @Environment(\.presentationMode) var presentationMode
     var body: some View {
         NavigationView {
@@ -25,7 +29,9 @@ struct MeetsView: View {
                 
                 ImageScrollView(data: self.$data)
                     .edgesIgnoringSafeArea(.all)
+                
                 FilterButton()
+               
                 
             }
             .background(Color.black.edgesIgnoringSafeArea(.all))
@@ -36,7 +42,7 @@ struct MeetsView: View {
 
 struct ImageScrollView: UIViewRepresentable {
     
-    @Binding var data: [ImageData]
+    @Binding var data: [MeetData]
     
     func makeCoordinator() -> Coordinator {
         return Coordinator(parent: self)
@@ -84,33 +90,28 @@ struct ImageScrollView: UIViewRepresentable {
 
 struct ImageView: View {
     
-    @Binding var data: [ImageData]
+    @Binding var data: [MeetData]
     
     var body: some View {
+        
         VStack(spacing: 0) {
-            ForEach(self.data) { imageData in
+            ForEach($data) { $meetData in
                 ZStack {
-                    Image(imageData.imageName) // Замените на ваш код отображения изображения, возможно потребуется логика воспроизведения изображения
+                    Image(meetData.imageName)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                         .offset(y: -4)
-                    MeetsLabels()
+                    MeetsLabels(meetName: meetData.meetName, address: meetData.address, description: meetData.description)
                     MeetsControls()
                     
                 }
                 
-                // Добавить здесь логику обработки нажатия для воспроизведения изображения или другие действия
             }
         }
     }
 }
 
-struct ImageData: Identifiable {
-    let id: Int
-    let imageName: String
-    var isPlaying: Bool
-}
     
 #Preview {
     MeetsView()

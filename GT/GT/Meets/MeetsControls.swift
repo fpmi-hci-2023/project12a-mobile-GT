@@ -42,22 +42,41 @@ struct MeetsControls: View {
 
 
 struct MeetsLabels: View {
+    @State var meetName: String
+    @State var address: String
+    @State var description: String
     var body: some View {
         VStack(spacing: 0) {
             HStack {
-                Text("Name")
+                Text(meetName)
                     .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 28))
                     .foregroundStyle(.white)
                 Spacer()
             }
-            .padding(.top, UIScreen.main.bounds.height / 1.5)
+            .padding(.top, UIScreen.main.bounds.height / 1.48)
             HStack {
-                Text("Address")
-                    .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 46))
+                
+                Image(systemName: "mappin.and.ellipse")
+                    .foregroundStyle(.white)
+                    .font(Font.system(size: UIScreen.main.bounds.height / 50, weight: .light))
+                    .padding(.bottom, 4)
+                Text(address)
+                    .font(.custom("Geometria", size: UIScreen.main.bounds.height / 46))
                     .foregroundStyle(.white)
                 Spacer()
             }
             .padding(.top, 6)
+            
+            HStack {
+                Text(description)
+                    .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 46))
+                    .foregroundStyle(.white)
+                    .lineLimit(3)
+                 
+                Spacer()
+            }
+            .padding(.trailing, phoneWidth * 0.12)
+            .padding(.top, 14)
             Spacer()
         }
         .padding(.horizontal)

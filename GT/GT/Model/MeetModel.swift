@@ -17,3 +17,14 @@ struct Meet : Identifiable {
     var time: String
     var address: String
 }
+
+struct  MeetData: Identifiable {
+    let id: Int
+    var imageName: String
+    var meetName: String
+    var description: String
+//    var creator: User
+    var date: String
+    var time: String
+    var address: String
+}

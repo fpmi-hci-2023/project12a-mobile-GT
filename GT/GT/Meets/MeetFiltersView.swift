@@ -32,8 +32,7 @@ struct FilterButton: View {
                         Rectangle()
                             .cornerRadius(10)
                             .frame(width: phoneWidth / 4 , height: phoneWidth / 12)
-                            .foregroundColor(.black)
-                            .opacity(0.2)
+                            .foregroundStyle(.ultraThinMaterial)
                         
                         HStack(spacing: 0) {
                             Image(systemName: "slider.horizontal.3")
@@ -41,8 +40,9 @@ struct FilterButton: View {
                                 .frame(width: 26)
                             
                             Text("Filters")
-                                .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 50))
+                                .font(.custom("Geometria", size: UIScreen.main.bounds.height / 46))
                                 .foregroundColor(.white)
+                            
                             
                         }
                     }
