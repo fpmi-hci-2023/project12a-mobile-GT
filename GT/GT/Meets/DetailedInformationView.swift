@@ -16,19 +16,85 @@ struct DetailedInformationView: View {
     @State var description: String
     var body: some View {
         ZStack {
-            Color(hex: 0x151515).ignoresSafeArea()
-            HeaderNavigation(navLabel: "Detailed")
-            
-            VStack {
-                Text(imageName)
-                Text(meetName)
-                Text(description)
-                Text(date)
-                Text(time)
-                Text(address)
-                
+            ScrollView(showsIndicators: false){
+                ZStack {
+                    
+                    VStack(spacing: 0) {
+                        Rectangle()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                            .foregroundStyle(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
+                                    startPoint: .bottom,
+                                    endPoint: .top
+                                )
+                            )
+                            .ignoresSafeArea()
+                        Rectangle()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                            .foregroundStyle(.black)
+                    }
+                    VStack {
+                        HStack {
+                            Text(meetName)
+                                .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
+                                .foregroundStyle(.white)
+                            Spacer()
+                        }
+                        .padding(.top, phoneHeight / 2)
+                        Text(description)
+                        Text(date)
+                        Text(time)
+                        Text(address)
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    HeaderNavigation(navLabel: "Detailed")
+                        .background(
+                            Rectangle()
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 3)
+                                .foregroundStyle(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color(hex: 0x000000), .clear]),
+                                        startPoint: .top,
+                                        endPoint: .bottom
+                                    )
+                                )
+                        )
+                        .padding(.top, UIApplication.shared.connectedScenes
+                            .filter { $0.activationState == .foregroundActive }
+                            .compactMap { $0 as? UIWindowScene }
+                            .first?.windows.first?.safeAreaInsets.top)
+                }
             }
-        }.navigationBarBackButtonHidden(true)
+            
+            .ignoresSafeArea()
+            
+            
+        }
+        .background(
+            ZStack {
+                Image(imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Spacer()
+                    Rectangle()
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.5)
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
+                                startPoint: .bottom,
+                                endPoint: .top
+                            )
+                        )
+                        .ignoresSafeArea()
+                }
+            })
+        .navigationBarBackButtonHidden(true)
     }
 }
 

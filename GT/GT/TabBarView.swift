@@ -37,10 +37,10 @@ struct TabBarView: View {
             Spacer()
             ZStack {
                 Rectangle()
-                    .frame(width: phoneWidth * 0.86 , height: tabBarHeight)
+                    .frame(width: phoneWidth * 0.84 , height: tabBarHeight * 0.9)
                     .foregroundStyle(.ultraThinMaterial)
                     .cornerRadius(40)
-                
+//                    .opacity(0.9)
                 HStack {
                     Spacer()
                     

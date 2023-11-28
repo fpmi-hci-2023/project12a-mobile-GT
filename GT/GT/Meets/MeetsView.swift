@@ -52,10 +52,10 @@ struct ImageScrollView: UIViewRepresentable {
         let view = UIScrollView()
         let childView = UIHostingController(rootView: ImageView(data: self.$data))
         childView.view.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * CGFloat(self.data.count))
-    
+        
         view.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * CGFloat(self.data.count))
         view.addSubview(childView.view)
-        
+       
         view.showsVerticalScrollIndicator = false
         view.showsHorizontalScrollIndicator = false
         view.contentInsetAdjustmentBehavior = .never
@@ -93,22 +93,70 @@ struct ImageView: View {
     @Binding var data: [MeetData]
     
     var body: some View {
-        
-        VStack(spacing: 0) {
-            ForEach($data) { $meetData in
-                ZStack {
-                    Image(meetData.imageName)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                        .offset(y: -5)
-                    MeetsLabels(meetName: meetData.meetName, address: meetData.address, description: meetData.description)
-                    MeetsControls(time: meetData.time, date: meetData.date, imageName: meetData.imageName, meetName: meetData.meetName, address: meetData.address, description: meetData.description)
+        ZStack {
+            
+            VStack(spacing: 0) {
+                ForEach($data) { $meetData in
+                    ZStack {
+                        Image(meetData.imageName)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                            .offset(y: -5)
+                        
+                    }
                     
                 }
-                
+                .overlay{
+                    
+                    Rectangle()
+                        .frame(width: phoneWidth, height: phoneHeight)
+                        .foregroundStyle(
+                            LinearGradient(
+                                gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
+                                startPoint: .bottom,
+                                endPoint: .top
+                            )
+                        )
+                        .opacity(0.6)
+                }
             }
+        
+            
+            
+          
+            
+            
+            VStack(spacing: 0) {
+                ForEach($data) { $meetData in
+                    ZStack {
+                        Rectangle()
+                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                            .offset(y: -5)
+                            .foregroundStyle(.clear)
+                        MeetsLabels(meetName: meetData.meetName, address: meetData.address, description: meetData.description)
+                        MeetsControls(time: meetData.time, date: meetData.date, imageName: meetData.imageName, meetName: meetData.meetName, address: meetData.address, description: meetData.description)
+                        
+                    }
+                    
+                }
+            }
+//            .background(
+//                Rectangle()
+//                .frame(width: phoneWidth, height: phoneHeight)
+//                    .foregroundStyle(
+//                        LinearGradient(
+//                            gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
+//                            startPoint: .bottom,
+//                            endPoint: .top
+//                        )
+//                    ))
+            
+            
+            
         }
+        
+        
     }
 }
 

@@ -30,26 +30,29 @@ struct FilterButton: View {
                 }) {
                     ZStack {
                         Rectangle()
-                            .cornerRadius(10)
-                            .frame(width: phoneWidth / 4 , height: phoneWidth / 12)
+                            .cornerRadius(16)
+                            .frame(width: phoneWidth / 9 , height: phoneWidth / 9)
                             .foregroundStyle(.ultraThinMaterial)
+                        //                            .opacity(0.9)
                         
-                        HStack(spacing: 0) {
-                            Image(systemName: "slider.horizontal.3")
-                                .foregroundColor(.white)
-                                .frame(width: 26)
-                            
-                            Text("Filters")
-                                .font(.custom("Geometria", size: UIScreen.main.bounds.height / 46))
-                                .foregroundColor(.white)
-                            
-                            
-                        }
+                        //                        HStack(spacing: 0) {
+                        Image(systemName: "slider.horizontal.3")
+                            .foregroundColor(.white)
+                            .frame(width: 26)
+                        
+                        //                            Text("Filters")
+                        //                                .font(.custom("Geometria", size: UIScreen.main.bounds.height / 46))
+                        //                                .foregroundColor(.white)
+                        
+                        
+                        //                        }
                     }
                 }
             }
+            
             Spacer()
         }
+        .padding(.trailing, phoneWidth / 28)
         .padding(.horizontal)
         .sheet(isPresented: $showingFilters) {
             MeetFiltersView()

@@ -16,17 +16,20 @@ struct MeetsControls: View {
     @State var description: String
     var body: some View {
         VStack {
-            
-            NavigationLink(destination: DetailedInformationView(time: time,
-                                                                date: date,
-                                                                imageName: imageName,
-                                                                meetName: meetName,
-                                                                address: address,
-                                                                description: description)) {
-                DetailedViewArrow()
+            HStack {
+                Spacer()
+                NavigationLink(destination: DetailedInformationView(time: time,
+                                                                    date: date,
+                                                                    imageName: imageName,
+                                                                    meetName: meetName,
+                                                                    address: address,
+                                                                    description: description)) {
+                    DetailedViewArrow()
+                    
+                }
             }
-            .padding(.top, UIScreen.main.bounds.height / 2.3)
-            .padding(.trailing, phoneWidth / 22)
+            .padding(.top, UIScreen.main.bounds.height / 2.8)
+            
             
             
             //Переход на профиль организатора
@@ -35,25 +38,25 @@ struct MeetsControls: View {
             }
             .padding(.top, phoneWidth / 10)
             .padding(.trailing, phoneWidth / 40)
-            
+            .padding(.horizontal)
             //Сохранить в избранное
             SaveButton()
                 .padding(.top, phoneWidth / 10)
                 .padding(.trailing, phoneWidth / 15)
-            
+                .padding(.horizontal)
             //Поделиться
             ShareMeetButton()
                 .padding(.top, phoneWidth / 14)
                 .padding(.trailing, phoneWidth / 16)
-            
+                .padding(.horizontal)
             //Меню троеточие
             ActionMenuButton()
                 .padding(.top, phoneWidth / 16)
                 .padding(.trailing, phoneWidth / 16)
-            
+                .padding(.horizontal)
             Spacer()
         }
-        .padding(.horizontal)
+       
     }
 }
 
@@ -196,20 +199,47 @@ struct ActionMenuButton: View {
 
 struct DetailedViewArrow: View {
     var body: some View {
-        HStack {
-            Spacer()
+        
             ZStack {
-                Image(systemName: "chevron.backward")
-                    .foregroundStyle(.white)
-                    .fontWeight(.light)
-                    .font(.system(size: UIScreen.main.bounds.height / 40))
-                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.01)
-                    .rotationEffect(.degrees(180))
+//                Image(systemName: "chevron.backward")
+//                    .foregroundStyle(.white)
+//                    .fontWeight(.light)
+//                    .font(.system(size: UIScreen.main.bounds.height / 40))
+//                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.01)
+//                    .rotationEffect(.degrees(180))
+//                Rectangle()
+//                    .foregroundStyle(.clear)
+//                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.1)
+                
+                
+                    
+                
                 Rectangle()
-                    .foregroundStyle(.clear)
-                    .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.1)
+                    .frame(width: phoneWidth / 10 , height: phoneWidth / 3.4)
+                    .roundedCorner(30, corners: [ .topLeft, .bottomLeft])
+                    .foregroundStyle(.ultraThinMaterial)
+                    .opacity(0.9)
+                VStack(spacing: 0) {
+                    Text("M")
+                        .font(.custom("Geometria", size: UIScreen.main.bounds.height / 36))
+                        .foregroundStyle(.white)
+                        .padding(.top, 2)
+                    Text("O")
+                        .font(.custom("Geometria", size: UIScreen.main.bounds.height / 36))
+                        .foregroundStyle(.white)
+                    Text("R")
+                        .font(.custom("Geometria", size: UIScreen.main.bounds.height / 36))
+                        .foregroundStyle(.white)
+                    Text("E")
+                        .font(.custom("Geometria", size: UIScreen.main.bounds.height / 36))
+                        .foregroundStyle(.white)
+                }
+                
             }
-        }
+//            .shadow(color: Color.black.opacity(0.3), radius: 4, x: 0, y: 10)
+          
+        
+        
     }
 }
 
