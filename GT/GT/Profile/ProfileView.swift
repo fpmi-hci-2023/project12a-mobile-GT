@@ -23,7 +23,7 @@ struct ProfileView: View {
         NavigationView {
             ZStack {
         
-                Color(hex: 0x151515).ignoresSafeArea()
+                Color(hex: 0x121212).ignoresSafeArea()
                 VStack {
                     
                     Image(avatar)
@@ -46,7 +46,7 @@ struct ProfileView: View {
                                         .frame(height: phoneHeight * 0.16)
                                         .foregroundStyle(
                                             LinearGradient(
-                                                gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
+                                                gradient: Gradient(colors: [Color(hex: 0x121212), .clear]),
                                                 startPoint: .bottom,
                                                 endPoint: .top
                                             )
@@ -265,8 +265,9 @@ struct EllipsisButtonProfile: View {
             //то поделить и пожаловаться
         } label: {
             ZStack {
-                Circle()
-                    .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
+                Rectangle()
+                    .cornerRadius(16)
+                    .frame(width: phoneWidth / 9 , height: phoneWidth / 9)
                     .foregroundStyle(.ultraThinMaterial)
                 Image(systemName: "arrow.uturn.forward")
                     .foregroundColor(.white)
@@ -281,8 +282,9 @@ struct GearButton: View {
     var body: some View {
         
         ZStack {
-            Circle()
-                .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
+            Rectangle()
+                .cornerRadius(16)
+                .frame(width: phoneWidth / 9 , height: phoneWidth / 9)
                 .foregroundStyle(.ultraThinMaterial)
             Image(systemName: "gearshape")
                 .foregroundColor(.white)

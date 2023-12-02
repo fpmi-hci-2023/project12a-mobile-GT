@@ -20,20 +20,26 @@ struct DetailedInformationView: View {
                 ZStack {
                     
                     VStack(spacing: 0) {
-                        Rectangle()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                            .foregroundStyle(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
-                                    startPoint: .bottom,
-                                    endPoint: .top
+                        ZStack {
+                            
+                            Rectangle()
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                .foregroundStyle(
+                                    //                                LinearGradient(
+                                    //                                    gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
+                                    //                                    startPoint: .bottom,
+                                    //                                    endPoint: .top
+                                    //                                )
+                                    Color(hex: 0x121212)
                                 )
-                            )
-                            .ignoresSafeArea()
+                                .roundedCorner(26, corners: [.topLeft, .topRight])
+                            //                            .ignoresSafeArea()
+                        }
                         Rectangle()
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                            .foregroundStyle(.black)
+                            .foregroundStyle(Color(hex: 0x121212))
                     }
+                    .padding(.top, phoneWidth)
                     VStack {
                         HStack {
                             Text(meetName)
@@ -41,12 +47,18 @@ struct DetailedInformationView: View {
                                 .foregroundStyle(.white)
                             Spacer()
                         }
-                        .padding(.top, phoneHeight / 2)
-                        Text(description)
-                        Text(date)
-                        Text(time)
-                        Text(address)
-                        Spacer()
+                        .padding(.top, phoneWidth * 1.08)
+                        
+                     
+                            VStack(alignment: .leading) {
+                                Text(description)
+                                    .padding(.top, phoneWidth / 6)
+                                Text(date)
+                                Text(time)
+                                Text(address)
+                                Spacer()
+                            }
+                          
                     }
                     .padding(.horizontal)
                     HeaderNavigation(navLabel: "Detailed")
@@ -55,10 +67,11 @@ struct DetailedInformationView: View {
                                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 3)
                                 .foregroundStyle(
                                     LinearGradient(
-                                        gradient: Gradient(colors: [Color(hex: 0x000000), .clear]),
+                                        gradient: Gradient(colors: [Color(hex: 0x121212), .clear]),
                                         startPoint: .top,
                                         endPoint: .bottom
                                     )
+                            
                                 )
                         )
                         .padding(.top, UIApplication.shared.connectedScenes
@@ -86,7 +99,7 @@ struct DetailedInformationView: View {
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.5)
                         .foregroundStyle(
                             LinearGradient(
-                                gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
+                                gradient: Gradient(colors: [Color(hex: 0x121212), Color(hex: 0x121212), .clear, .clear]),
                                 startPoint: .bottom,
                                 endPoint: .top
                             )
@@ -113,3 +126,31 @@ struct DetailedInformationView: View {
 //    var time: String
 //    var address: String
 //}
+
+
+
+
+
+
+//
+//VStack(spacing: 0) {
+//    ZStack {
+//        
+//        Rectangle()
+//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//            .foregroundStyle(
+//                //                                LinearGradient(
+//                //                                    gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
+//                //                                    startPoint: .bottom,
+//                //                                    endPoint: .top
+//                //                                )
+//                .black
+//            )
+//            .roundedCorner(40, corners: [.topLeft, .topRight])
+//        //                            .ignoresSafeArea()
+//    }
+//    Rectangle()
+//        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+//        .foregroundStyle(.black)
+//}
+//.padding(.top, phoneWidth)

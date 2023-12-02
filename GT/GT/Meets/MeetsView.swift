@@ -80,10 +80,10 @@ struct ImageScrollView: UIViewRepresentable {
         
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
             let currentIndex = Int(scrollView.contentOffset.y / UIScreen.main.bounds.height)
-            if index != currentIndex {
-                index = currentIndex
-                // Поместите здесь логику воспроизведения изображения, например, через обновление данных isPlaying и так далее
-            }
+//            if index != currentIndex {
+//                index = currentIndex
+//        
+//            }
         }
     }
 }
@@ -108,7 +108,7 @@ struct ImageView: View {
                     
                 }
                 .overlay{
-                    
+                        
                     Rectangle()
                         .frame(width: phoneWidth, height: phoneHeight)
                         .foregroundStyle(
@@ -118,14 +118,9 @@ struct ImageView: View {
                                 endPoint: .top
                             )
                         )
-                        .opacity(0.6)
+                        .opacity(0.5)
                 }
             }
-        
-            
-            
-          
-            
             
             VStack(spacing: 0) {
                 ForEach($data) { $meetData in
@@ -138,25 +133,20 @@ struct ImageView: View {
                         MeetsControls(time: meetData.time, date: meetData.date, imageName: meetData.imageName, meetName: meetData.meetName, address: meetData.address, description: meetData.description)
                         
                     }
-                    
                 }
             }
-//            .background(
-//                Rectangle()
-//                .frame(width: phoneWidth, height: phoneHeight)
-//                    .foregroundStyle(
-//                        LinearGradient(
-//                            gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
-//                            startPoint: .bottom,
-//                            endPoint: .top
-//                        )
-//                    ))
-            
-            
+            //            .background(
+            //                Rectangle()
+            //                .frame(width: phoneWidth, height: phoneHeight)
+            //                    .foregroundStyle(
+            //                        LinearGradient(
+            //                            gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
+            //                            startPoint: .bottom,
+            //                            endPoint: .top
+            //                        )
+            //                    ))
             
         }
-        
-        
     }
 }
 

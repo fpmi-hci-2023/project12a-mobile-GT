@@ -228,13 +228,13 @@
 			isa = PBXGroup;
 			children = (
 				355A02912AFDCDDF007B6C1E /* Info.plist */,
+				35B426462AE87CAB00ECF0AB /* Preview Content */,
 				355A02922AFDCEFF007B6C1E /* Fonts */,
 				353F4A992B04FFDE00915B04 /* Model */,
 				353F4A942B04FF0200915B04 /* Data */,
 				35B426402AE87CA900ECF0AB /* GTApp.swift */,
 				35B426422AE87CA900ECF0AB /* ContentView.swift */,
 				35B426442AE87CAB00ECF0AB /* Assets.xcassets */,
-				35B426462AE87CAB00ECF0AB /* Preview Content */,
 				35B793802AEB446C000D6780 /* TabBarView.swift */,
 				359E27FA2AF6397700F95276 /* CalendarView.swift */,
 				353A917F2AF88788002D6766 /* Profile */,

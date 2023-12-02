@@ -22,7 +22,7 @@ struct StrangerProfileView: View {
         
         ZStack {
             
-            Color(hex: 0x151515).ignoresSafeArea()
+            Color(hex: 0x121212).ignoresSafeArea()
             VStack {
                 
                 Image(avatar)
@@ -43,7 +43,7 @@ struct StrangerProfileView: View {
                                     .frame(height: phoneHeight * 0.16)
                                     .foregroundStyle(
                                         LinearGradient(
-                                            gradient: Gradient(colors: [Color(hex: 0x151515), .clear]),
+                                            gradient: Gradient(colors: [Color(hex: 0x121212), .clear]),
                                             startPoint: .bottom,
                                             endPoint: .top
                                         )
