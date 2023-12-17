@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import swiftui_bottom_sheet_drawer
 
 struct DetailedInformationView: View {
     @State var time: String
@@ -14,143 +15,221 @@ struct DetailedInformationView: View {
     @State var meetName: String
     @State var address: String
     @State var description: String
+    @Environment(\.presentationMode) var presentationMode
+    @State var showModal: Bool = false
+    @State var opa: Bool = false
     var body: some View {
-        ZStack {
-            ScrollView(showsIndicators: false){
-                ZStack {
-                    
-                    VStack(spacing: 0) {
-                        ZStack {
-                            
-                            Rectangle()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .foregroundStyle(
-                                    //                                LinearGradient(
-                                    //                                    gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
-                                    //                                    startPoint: .bottom,
-                                    //                                    endPoint: .top
-                                    //                                )
-                                    Color(hex: 0x121212)
-                                )
-                                .roundedCorner(26, corners: [.topLeft, .topRight])
-                            //                            .ignoresSafeArea()
-                        }
-                        Rectangle()
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                            .foregroundStyle(Color(hex: 0x121212))
-                    }
-                    .padding(.top, phoneWidth)
-                    VStack {
-                        HStack {
-                            Text(meetName)
-                                .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
-                                .foregroundStyle(.white)
-                            Spacer()
-                        }
-                        .padding(.top, phoneWidth * 1.08)
-                        
-                     
-                            VStack(alignment: .leading) {
-                                Text(description)
-                                    .padding(.top, phoneWidth / 6)
-                                Text(date)
-                                Text(time)
-                                Text(address)
-                                Spacer()
-                            }
-                          
-                    }
-                    .padding(.horizontal)
-                    HeaderNavigation(navLabel: "Detailed")
-                        .background(
-                            Rectangle()
-                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width / 3)
-                                .foregroundStyle(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [Color(hex: 0x121212), .clear]),
-                                        startPoint: .top,
-                                        endPoint: .bottom
-                                    )
-                            
-                                )
-                        )
-                        .padding(.top, UIApplication.shared.connectedScenes
-                            .filter { $0.activationState == .foregroundActive }
-                            .compactMap { $0 as? UIWindowScene }
-                            .first?.windows.first?.safeAreaInsets.top)
-                }
-            }
-            
-            .ignoresSafeArea()
-            
+        ZStack(alignment: .top) {
+            Color(hex: 0x0D0D0D).ignoresSafeArea()
+            Image(imageName)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+                .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
+                .ignoresSafeArea()
+          
+            HeaderNavigationMeet(navLabel: meetName)
+            BottomSheet(content: SheetContent(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description), shift: UIScreen.main.bounds.height * 0.44, topIndentation: UIScreen.main.bounds.height * 0.06, draggerHeight: UIScreen.main.bounds.height * 0.26, dragThresholdToAct: UIScreen.main.bounds.height * 0.26)
             
         }
-        .background(
-            ZStack {
-                Image(imageName)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                    .ignoresSafeArea()
-                
-                VStack {
-                    Spacer()
-                    Rectangle()
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.5)
-                        .foregroundStyle(
-                            LinearGradient(
-                                gradient: Gradient(colors: [Color(hex: 0x121212), Color(hex: 0x121212), .clear, .clear]),
-                                startPoint: .bottom,
-                                endPoint: .top
-                            )
-                        )
-                        .ignoresSafeArea()
-                }
-            })
         .navigationBarBackButtonHidden(true)
     }
 }
 
-//#Preview {
-//    DetailedInformationView()
-//}
-
-
-//struct  MeetData: Identifiable {
-//    let id: Int
-//    var imageName: String
-//    var meetName: String
-//    var description: String
-////    var creator: User
-//    var date: String
-//    var time: String
-//    var address: String
-//}
+#Preview {
+    DetailedInformationView(time: "10:00", date: "June, 27", imageName: "ava", meetName: "Play chess", address: "Yakub Kolas Street", description: "I wanna play chess I wanna play chess I wanna play chess", showModal: true)
+ 
+}
 
 
 
-
-
-
+struct SheetContent: View {
+    @State var time: String
+    @State var date: String
+    @State var imageName: String
+    @State var meetName: String
+    @State var address: String
+    @State var description: String
+    var body: some View {
+        ZStack {
+            Color(hex: 0x0D0D0D).ignoresSafeArea()
+            ScrollView {
+                VStack {
+                    ZStack {
+                        
+                        RoundedRectangle(cornerRadius: 32)
+                            .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.14)
+                            .foregroundStyle(.white)
+                            .shadow(color: Color.black.opacity(0.05), radius: 16, x: 0, y: 5)
+                        
+                        VStack {
+                            HStack {
+                                
+                                Text(meetName)
+                                    .font(.custom("Geometria-Bold", size: phoneHeight / 34))
+                                    .foregroundStyle(Color(hex: 0x092114))
+                                    .padding(.leading, phoneWidth * 0.14)
+                                Spacer()
+                                
+                                Text("Minsk")
+                                    .font(.custom("Geometria-Bold", size: phoneHeight / 50))
+                                    .foregroundStyle(Color(hex: 0x092114))
+                                    .padding(.trailing, phoneWidth * 0.14)
+                            }
+                            
+                        }
+                        
+                        .padding(.bottom , phoneWidth * 0.06)
+                        
+                        VStack {
+                            HStack {
+                                
+                                Text(date)
+                                    .font(.custom("Geometria-Bold", size: phoneHeight / 50))
+                                    .foregroundStyle(Color(hex: 0x092114))
+                                    .padding(.leading, phoneWidth * 0.14)
+                                
+                                Spacer()
+                                
+                                Text(time)
+                                    .font(.custom("Geometria-Bold", size: phoneHeight / 50))
+                                    .foregroundStyle(Color(hex: 0x092114))
+                                    .padding(.trailing, phoneWidth * 0.14)
+                            }
+                            
+                        }
+                        
+                        .padding(.top , phoneWidth * 0.1)
+                    }
+                }
+            }
+            .padding(.top, phoneWidth * 0.1)
+        }
+        
+    }
+}
+        
 //
-//VStack(spacing: 0) {
-//    ZStack {
-//        
-//        Rectangle()
-//            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-//            .foregroundStyle(
-//                //                                LinearGradient(
-//                //                                    gradient: Gradient(colors: [Color(hex: 0x000000), Color(hex: 0x000000), Color(hex: 0x000000), .clear, .clear]),
-//                //                                    startPoint: .bottom,
-//                //                                    endPoint: .top
-//                //                                )
-//                .black
-//            )
-//            .roundedCorner(40, corners: [.topLeft, .topRight])
-//        //                            .ignoresSafeArea()
+//            VStack {
+//                HStack {
+//                    Button(action: {
+//                        showModal = false
+//                        presentationMode.wrappedValue.dismiss()
+//                    }) {
+//                        ZStack {
+//                            Image(systemName: "chevron.backward")
+//                                .foregroundStyle(.white)
+//                                .fontWeight(.light)
+//                                .font(.system(size: UIScreen.main.bounds.height / 40))
+//                                .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.01)
+//                            Rectangle()
+//                                .foregroundStyle(.clear)
+//                                .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.1)
+//                        }
+//                    }
+//                    Spacer()
+//                    Text(meetName)
+//                        .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 30))
+//                        .foregroundStyle(.white)
+//                    Spacer()
+//
+//                    Menu {
+//                        Button {
+//                        } label: {
+//                            Label("Share", systemImage: "arrow.uturn.forward")
+//                        }
+//                        Button(role: .destructive) {
+//                        } label: {
+//                            Label("Report", systemImage: "exclamationmark.triangle")
+//
+//                        }
+//                    } label: {
+//                        ZStack {
+//                            Rectangle()
+//                                .foregroundStyle(.clear)
+//                                .frame(width: UIScreen.main.bounds.width * 0.1,height: UIScreen.main.bounds.width * 0.1)
+//
+//                            Image(systemName: "ellipsis")
+//                                .foregroundColor(.white)
+//                                .fontWeight(.light)
+//                                .font(.system(size: UIScreen.main.bounds.height / 40))
+//                                .rotationEffect(.degrees(90))
+//                                .padding(.trailing, phoneWidth * 0.02)
+//                        }
+//                    }
+//                }
+//                .padding(.horizontal, 10)
+//                Spacer()
+//            }
+        
+//        .sheet(isPresented: $showModal) {
+//            ZStack {
+//                Color(hex: 0x0D0D0D).ignoresSafeArea()
+//                
+//                Text("Item ")
+//                    .foregroundStyle(.white)
+//                
+//                   
+//            }
+//            .presentationDetents([.height(phoneHeight * 0.4), .large])
+//            .presentationBackgroundInteraction(.enabled)
+//            .interactiveDismissDisabled()
+//            .presentationContentInteraction(.scrolls)
+//            .opacity(opa == true ? 1 : 0)
+//        }
+//        .onAppear {
+//            var transaction = Transaction()
+//            transaction.disablesAnimations = true
+//            withTransaction(transaction) {
+//                showModal = true
+//            }
+//        }
+//        .onDisappear {
+//            var transaction = Transaction()
+//            transaction.disablesAnimations = true
+//            withTransaction(transaction) {
+//                opa = false
+//                showModal = false
+//               
+//            }
+//        }
+       
+
+
+//    var body: some View {
+//        ZStack {
+//            
+//            Color(hex: 0xFF4F6F1).ignoresSafeArea()
+//            
+//            VStack {
+//                ZStack {
+//                    
+//                    Image(imageName)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+//                        .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
+//                    Button("Show Credits") {
+//                               showingCredits.toggle()
+//                           }
+//                    .sheet(isPresented: $showingCredits) {
+//                               Text("This app was brought to you by Hacking with Swift")
+//                                   .presentationDetents([.medium, .large])
+//                                   .presentationDragIndicator(.hidden)
+//                           }
+//                }
+//                Spacer()
+//            }
+//            .ignoresSafeArea()
+//            
+//            LabelRectangle(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description)
+//            
+//            HeaderNavigationMeet(navLabel: meetName)
+//            
+//        }
+//        .navigationBarBackButtonHidden(true)
+//      
 //    }
-//    Rectangle()
-//        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-//        .foregroundStyle(.black)
 //}
-//.padding(.top, phoneWidth)
+
+

@@ -121,81 +121,6 @@ struct StrangerProfileView: View {
         
     }
 }
-//        ZStack {
-//            Color(hex: 0x151515)
-//                .ignoresSafeArea()
-//            
-//            ScrollView {
-//               
-//                //avatar
-//                VStack {
-//                    ZStack {
-//                        Image(avatar)
-//                            .resizable()
-//                            .frame(height: phoneWidth * 1.2)
-//                        
-//                        VStack {
-//                            HStack {
-//                                CloseViewArrow()
-//                                    .padding(.top, phoneWidth * 0.15)
-//                                Spacer()
-//                                EllipsisButtonStranger()
-//                                    .padding(.top, phoneWidth * 0.15)
-//                            }
-//                            .padding(.horizontal)
-//                            Spacer()
-//                        }
-//                       
-//                    }
-//                    HStack {
-//                        Text(name)
-//                            .font(.custom("Poppins-Medium", size: UIScreen.main.bounds.height / 34))
-//                            .foregroundStyle(Color(hex: 0xD2BDA8))
-//                            .font(.system(size: 26))
-//                        
-//                        Spacer()
-//                    }
-//                    .padding(.top, 14)
-//                    .padding(.horizontal, 10)
-//                    
-//                    HStack {
-//                        Text(username)
-//                            .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 44))
-//                            .foregroundStyle(.gray)
-//                            .font(.system(size: 26))
-//                        Spacer()
-//                        AddFriendButton()
-//                            .padding(.horizontal, 10)
-//                    }
-//                    .padding(.horizontal, 10)
-//                
-//                    SegmentControlProfile(items: self.items, selection: self.$selection)
-//                        .padding(.horizontal, 6)
-//                    
-//                    if selection == 0 {
-//                        LazyVGrid(columns: columns, spacing: 30) {
-//                            ForEach(visited_data) { cards in
-//                                CardView(title: cards.title , image: cards.image, date: cards.data, time: cards.time)
-//                            }
-//                        }
-//                        .padding(.horizontal, 10)
-//                        
-//                    } else {
-//                        LazyVGrid(columns: columns, spacing: 30) {
-//                            ForEach(created_data) { cards in
-//                                CardView(title: cards.title , image: cards.image, date: cards.data, time: cards.time)
-//                            }
-//                        }
-//                        .padding(.horizontal, 10)
-//                    }
-//                }
-//            }
-//        }
-//        .navigationBarBackButtonHidden(true)
-//
-//        .ignoresSafeArea()
-//    }
-//}
 
 #Preview {
     StrangerProfileView()
@@ -243,16 +168,13 @@ struct EllipsisButtonStranger: View {
                         
                     }
         } label: {
-            ZStack {
-                Circle()
-                    .frame(width: phoneWidth * 0.1 , height: phoneWidth * 0.1)
-                    .foregroundStyle(.ultraThinMaterial)
+            
                 Image(systemName: "ellipsis")
                     .foregroundColor(.white)
                     .fontWeight(.light)
                     .font(.system(size: UIScreen.main.bounds.height / 40))
                     .rotationEffect(.degrees(90))
-            }
+                    .padding(.trailing, phoneWidth * 0.02)
         }
           
                 
@@ -273,3 +195,110 @@ struct EllipsisButtonStranger: View {
 //        }
     }
 }
+
+
+
+
+
+
+
+//struct DetailedInformationView: View {
+//    @State var time: String
+//    @State var date: String
+//    @State var imageName: String
+//    @State var meetName: String
+//    @State var address: String
+//    @State var description: String
+//    var body: some View {
+//        ZStack {
+//            
+//            Color(hex: 0xFF4F6F1).ignoresSafeArea()
+//            
+//            VStack {
+//                ZStack {
+//                    
+//                    Image(imageName)
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fill)
+//                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+//                        .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
+//                }
+//                Spacer()
+//            }
+//            .ignoresSafeArea()
+//            
+//            LabelRectangle(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description)
+//            
+//            HeaderNavigationMeet(navLabel: meetName)
+//            
+//        }
+//        .navigationBarBackButtonHidden(true)
+//    }
+//}
+//
+//#Preview {
+//    DetailedInformationView(time: "10:00", date: "June, 27", imageName: "ava", meetName: "Play chess", address: "Yakub Kolas Street", description: "I wanna play chess I wanna play chess I wanna play chess")
+// 
+//}
+//
+//
+//
+//struct LabelRectangle: View {
+//    @State var time: String
+//    @State var date: String
+//    @State var imageName: String
+//    @State var meetName: String
+//    @State var address: String
+//    @State var description: String
+//    var body: some View {
+//        VStack {
+//            ZStack {
+//                RoundedRectangle(cornerRadius: 32)
+//                    .frame(width: UIScreen.main.bounds.width * 0.9, height: UIScreen.main.bounds.height * 0.14)
+//                    .foregroundStyle(.white)
+//                    .shadow(color: Color.black.opacity(0.05), radius: 16, x: 0, y: 5)
+//                
+//                VStack {
+//                    HStack {
+//                        
+//                        Text(meetName)
+//                            .font(.custom("Geometria-Bold", size: phoneHeight / 34))
+//                            .foregroundStyle(Color(hex: 0x092114))
+//                            .padding(.leading, phoneWidth * 0.14)
+//                        Spacer()
+//                        
+//                        Text("Minsk")
+//                            .font(.custom("Geometria-Bold", size: phoneHeight / 50))
+//                            .foregroundStyle(Color(hex: 0x092114))
+//                            .padding(.trailing, phoneWidth * 0.14)
+//                    }
+//                    
+//                }
+//               
+//                .padding(.bottom , phoneWidth * 0.06)
+//                
+//                VStack {
+//                    HStack {
+//                        
+//                        Text(date)
+//                            .font(.custom("Geometria-Bold", size: phoneHeight / 50))
+//                            .foregroundStyle(Color(hex: 0x092114))
+//                            .padding(.leading, phoneWidth * 0.14)
+//                        
+//                        Spacer()
+//                        
+//                        Text(time)
+//                            .font(.custom("Geometria-Bold", size: phoneHeight / 50))
+//                            .foregroundStyle(Color(hex: 0x092114))
+//                            .padding(.trailing, phoneWidth * 0.14)
+//                    }
+//                    
+//                }
+//                
+//                .padding(.top , phoneWidth * 0.1)
+//            }
+//        }
+//        .padding(.top, phoneWidth / 6)
+//        
+//    }
+//}

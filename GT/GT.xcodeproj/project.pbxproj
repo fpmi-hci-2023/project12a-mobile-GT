@@ -40,6 +40,7 @@
 		353F4A9B2B050ACD00915B04 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A9A2B050ACD00915B04 /* UserModel.swift */; };
 		353F4A9D2B050AF600915B04 /* MeetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353F4A9C2B050AF600915B04 /* MeetModel.swift */; };
 		355A02A52AFDD1D8007B6C1E /* StrangerProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355A02A42AFDD1D8007B6C1E /* StrangerProfileView.swift */; };
+		358486382B2FA35000F9D903 /* swiftui-bottom-sheet-drawer in Frameworks */ = {isa = PBXBuildFile; productRef = 358486372B2FA35000F9D903 /* swiftui-bottom-sheet-drawer */; };
 		359E27F92AF5C2A100F95276 /* DetailedInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359E27F82AF5C2A100F95276 /* DetailedInformationView.swift */; };
 		359E27FB2AF6397700F95276 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359E27FA2AF6397700F95276 /* CalendarView.swift */; };
 		35B426412AE87CA900ECF0AB /* GTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B426402AE87CA900ECF0AB /* GTApp.swift */; };
@@ -107,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				358486382B2FA35000F9D903 /* swiftui-bottom-sheet-drawer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +271,9 @@
 			dependencies = (
 			);
 			name = GT;
+			packageProductDependencies = (
+				358486372B2FA35000F9D903 /* swiftui-bottom-sheet-drawer */,
+			);
 			productName = GT;
 			productReference = 35B4263D2AE87CA900ECF0AB /* GT.app */;
 			productType = "com.apple.product-type.application";
@@ -297,6 +302,9 @@
 				Base,
 			);
 			mainGroup = 35B426342AE87CA900ECF0AB;
+			packageReferences = (
+				358486362B2FA34F00F9D903 /* XCRemoteSwiftPackageReference "swiftui-bottom-sheet-drawer" */,
+			);
 			productRefGroup = 35B4263E2AE87CA900ECF0AB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -423,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -480,7 +488,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -507,7 +515,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,7 +546,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,6 +582,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		358486362B2FA34F00F9D903 /* XCRemoteSwiftPackageReference "swiftui-bottom-sheet-drawer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/The-Igor/swiftui-bottom-sheet-drawer";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		358486372B2FA35000F9D903 /* swiftui-bottom-sheet-drawer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 358486362B2FA34F00F9D903 /* XCRemoteSwiftPackageReference "swiftui-bottom-sheet-drawer" */;
+			productName = "swiftui-bottom-sheet-drawer";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 35B426352AE87CA900ECF0AB /* Project object */;
 }
