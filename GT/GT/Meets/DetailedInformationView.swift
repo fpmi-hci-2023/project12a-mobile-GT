@@ -16,20 +16,16 @@ struct DetailedInformationView: View {
     @State var address: String
     @State var description: String
     @Environment(\.presentationMode) var presentationMode
-    @State var showModal: Bool = false
-    @State var opa: Bool = false
+
     var body: some View {
         ZStack(alignment: .top) {
-            Color(hex: 0x0D0D0D).ignoresSafeArea()
-            Image(imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
-                .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
-                .ignoresSafeArea()
-          
+            Color(hex: 0x070707).ignoresSafeArea()
+            
+            MeetImageView(imageName: imageName)
+            
             HeaderNavigationMeet(navLabel: meetName)
-            BottomSheet(content: SheetContent(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description), shift: UIScreen.main.bounds.height * 0.44, topIndentation: UIScreen.main.bounds.height * 0.06, draggerHeight: UIScreen.main.bounds.height * 0.26, dragThresholdToAct: UIScreen.main.bounds.height * 0.26)
+            
+            BottomSheet(content: MeetSheetContent(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
             
         }
         .navigationBarBackButtonHidden(true)
@@ -37,13 +33,22 @@ struct DetailedInformationView: View {
 }
 
 #Preview {
-    DetailedInformationView(time: "10:00", date: "June, 27", imageName: "ava", meetName: "Play chess", address: "Yakub Kolas Street", description: "I wanna play chess I wanna play chess I wanna play chess", showModal: true)
+    DetailedInformationView(time: "10:00", date: "June, 27", imageName: "ava", meetName: "Play chess", address: "Yakub Kolas Street", description: "I wanna play chess I wanna play chess I wanna play chess")
  
 }
 
-
-
-struct SheetContent: View {
+struct MeetImageView: View {
+    @State var imageName: String
+    var body: some View {
+        Image(imageName)
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+            .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
+            .ignoresSafeArea()
+    }
+}
+struct MeetSheetContent: View {
     @State var time: String
     @State var date: String
     @State var imageName: String
@@ -52,7 +57,7 @@ struct SheetContent: View {
     @State var description: String
     var body: some View {
         ZStack {
-            Color(hex: 0x0D0D0D).ignoresSafeArea()
+            Color(hex: 0x070707).ignoresSafeArea()
             ScrollView {
                 VStack {
                     ZStack {
@@ -103,7 +108,7 @@ struct SheetContent: View {
                     }
                 }
             }
-            .padding(.top, phoneWidth * 0.1)
+            .padding(.top, phoneWidth * 0.06)
         }
         
     }

@@ -6,121 +6,232 @@
 //
 
 import SwiftUI
+import swiftui_bottom_sheet_drawer
 
 struct StrangerProfileView: View {
     var avatar = "ava"
     var name = "Fox"
     var surname = "Leslie"
     var age = "23"
-    var username = "@olegtinkov"
+    var username = "@lesliefox"
+    var description = "lalalall alallalalal  la alal al al allalalalal alalalla alal ala lal allalalala"
     var columns = Array(repeating: GridItem(.flexible(), spacing: 20), count: 2)
     
     
     @State var selection: Int = 0
     private let items: [String] = ["Created", "Visited"]
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
-        
-        ZStack {
+        ZStack(alignment: .top) {
+            Color(hex: 0x070707).ignoresSafeArea()
+            StrangerProfileImageView(avatar: avatar, name: name, surname: surname, age: age, username: username)
             
-            Color(hex: 0x121212).ignoresSafeArea()
-            VStack {
-                
-                Image(avatar)
-                    .resizable()
-                    .frame(height: phoneWidth * 1.2)
-                    .overlay {
-                        VStack {
-                            HStack {
-                                CloseViewArrow()
-                                Spacer()
-                                EllipsisButtonStranger()
-                            }
-                            .padding(.top, phoneWidth * 0.15)
-                            .padding(.horizontal, 10)
-                            Spacer()
-                            ZStack {
-                                Rectangle()
-                                    .frame(height: phoneHeight * 0.16)
-                                    .foregroundStyle(
-                                        LinearGradient(
-                                            gradient: Gradient(colors: [Color(hex: 0x121212), .clear]),
-                                            startPoint: .bottom,
-                                            endPoint: .top
-                                        )
-                                    )
-                                VStack(spacing: 0) {
-                                    HStack {
-                                        Text(surname)
-                                            .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
-                                            .foregroundStyle(.white)
-                                        
-                                        Spacer()
-                                    }
-                                    .padding(.horizontal, phoneWidth * 0.06)
-                                    
-                                    HStack {
-                                        Text(name)
-                                            .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
-                                            .foregroundStyle(.white)
-                                        
-                                        Text(age)
-                                            .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 30))
-                                            .foregroundStyle(.white)
-                                            .padding(.leading, 10)
-                                            .padding(.top, 3)
-                                        
-                                        Spacer()
-                                    }
-                                    
-                                    .padding(.horizontal, phoneWidth * 0.06)
-                                    
-                                }
-                            }
-                        }
-                    }
-                
-                HStack {
-                    Text("About")
-                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
-                        .foregroundStyle(.white)
-                        .padding(.top, 8)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, phoneWidth * 0.06)
-                
-                HStack {
-                    Text("AboutAb outAboutA boutA boutAbo utAbo utAbo utAbou tAboutA boutAb outAbout AboutAb outAbou tAbou tAbout Ab outAbou tAbout About AboutAboutA b outAb out")
-                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 54))
-                        .foregroundStyle(.white)
-                    
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, phoneWidth * 0.06)
-                
-                HStack {
-                    Text("Interests")
-                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
-                        .foregroundStyle(.white)
-                        .padding(.top, 2)
-                    
-                    Spacer()
-                }
-                .padding(.horizontal, phoneWidth * 0.06)
-                
-                InterestsView()
-                
-                
+            HStack {
+                CloseViewArrow()
                 Spacer()
+                StrangerEllipsisButton()
             }
+            
+            .padding(.horizontal, 10)
+            BottomSheet(content: StrangerProfileContent(username: name, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
+            
         }
-        .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
+    }
+    
+}
         
-        
+
+struct StrangerProfileImageView: View {
+    @State var avatar: String
+    @State var name: String
+    @State var surname: String
+    @State var age: String
+    @State var username: String
+    
+    var body: some View {
+        ZStack {
+            Image(avatar)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+                .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
+                .ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                Spacer()
+                HStack {
+                    Text(surname)
+                        .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, phoneWidth * 0.06)
+                
+                HStack {
+                    Text(name)
+                        .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
+                        .foregroundStyle(.white)
+                        
+                    Text(age)
+                        .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 34))
+                        .foregroundStyle(.white)
+                        .padding(.leading, 10)
+                        .padding(.top, 3)
+                    
+                    Spacer()
+                    
+                    Text(username)
+                        .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 40))
+                        .foregroundStyle(.white)
+                        .padding(.leading, 10)
+                        .padding(.top, 3)
+                    
+                }
+                .padding(.bottom, phoneWidth * 0.14)
+                .padding(.horizontal, phoneWidth * 0.06)
+            }
+            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+        }
     }
 }
+        
+
+struct StrangerProfileContent: View {
+    @State var username: String
+    @State var description: String
+    var body: some View {
+        ZStack {
+            Color(hex: 0x070707).ignoresSafeArea()
+            VStack(spacing: 0) {
+            
+                HStack {
+                    Text("About")
+                        .font(.custom("Geometria-Medium", size: UIScreen.main.bounds.height / 36))
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                }
+                .padding(.horizontal, phoneWidth * 0.06)
+                
+                HStack {
+                    Text(description)
+                        .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 44))
+                        .foregroundStyle(.white)
+                    
+                    Spacer()
+                }
+                .padding(.top, phoneWidth * 0.04)
+                .padding(.horizontal, phoneWidth * 0.06)
+                Spacer()
+            }
+            .padding(.top, phoneWidth * 0.06)
+        }
+    }
+}
+        
+//        ZStack {
+//            
+//            Color(hex: 0x121212).ignoresSafeArea()
+//            VStack {
+//                
+//                Image(avatar)
+//                    .resizable()
+//                    .frame(height: phoneWidth * 1.2)
+//                    .overlay {
+//                        VStack {
+//                            HStack {
+//                                CloseViewArrow()
+//                                Spacer()
+//                                EllipsisButtonStranger()
+//                            }
+//                            .padding(.top, phoneWidth * 0.15)
+//                            .padding(.horizontal, 10)
+//                            Spacer()
+//                            ZStack {
+//                                Rectangle()
+//                                    .frame(height: phoneHeight * 0.16)
+//                                    .foregroundStyle(
+//                                        LinearGradient(
+//                                            gradient: Gradient(colors: [Color(hex: 0x121212), .clear]),
+//                                            startPoint: .bottom,
+//                                            endPoint: .top
+//                                        )
+//                                    )
+//                                VStack(spacing: 0) {
+//                                    HStack {
+//                                        Text(surname)
+//                                            .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
+//                                            .foregroundStyle(.white)
+//                                        
+//                                        Spacer()
+//                                    }
+//                                    .padding(.horizontal, phoneWidth * 0.06)
+//                                    
+//                                    HStack {
+//                                        Text(name)
+//                                            .font(.custom("NeueMachina-Bold", size: UIScreen.main.bounds.height / 20))
+//                                            .foregroundStyle(.white)
+//                                        
+//                                        Text(age)
+//                                            .font(.custom("geometria_bold", size: UIScreen.main.bounds.height / 30))
+//                                            .foregroundStyle(.white)
+//                                            .padding(.leading, 10)
+//                                            .padding(.top, 3)
+//                                        
+//                                        Spacer()
+//                                    }
+//                                    
+//                                    .padding(.horizontal, phoneWidth * 0.06)
+//                                    
+//                                }
+//                            }
+//                        }
+//                    }
+//                
+//                HStack {
+//                    Text("About")
+//                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
+//                        .foregroundStyle(.white)
+//                        .padding(.top, 8)
+//                    
+//                    Spacer()
+//                }
+//                .padding(.horizontal, phoneWidth * 0.06)
+//                
+//                HStack {
+//                    Text("AboutAb outAboutA boutA boutAbo utAbo utAbo utAbou tAboutA boutAb outAbout AboutAb outAbou tAbou tAbout Ab outAbou tAbout About AboutAboutA b outAb out")
+//                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 54))
+//                        .foregroundStyle(.white)
+//                    
+//                    
+//                    Spacer()
+//                }
+//                .padding(.horizontal, phoneWidth * 0.06)
+//                
+//                HStack {
+//                    Text("Interests")
+//                        .font(.custom("Poppins-light", size: UIScreen.main.bounds.height / 34))
+//                        .foregroundStyle(.white)
+//                        .padding(.top, 2)
+//                    
+//                    Spacer()
+//                }
+//                .padding(.horizontal, phoneWidth * 0.06)
+//                
+//                InterestsView()
+//                
+//                
+//                Spacer()
+//            }
+//        }
+//        .ignoresSafeArea()
+//        .navigationBarBackButtonHidden(true)
+//        
+//        
+//    }
+//}
 
 #Preview {
     StrangerProfileView()
@@ -150,7 +261,7 @@ struct AddFriendButton: View {
     }
 }
 
-struct EllipsisButtonStranger: View {
+struct StrangerEllipsisButton: View {
     var body: some View {
         Menu {
                     Button {
