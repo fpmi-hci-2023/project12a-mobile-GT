@@ -121,3 +121,31 @@ extension View {
         clipShape(RoundedCorner(radius: radius, corners: corners) )
     }
 }
+
+
+func settingsText(_ text: String) -> some View {
+    HStack {
+        Text(text)
+            .font(.custom("Geometria-extraLight", size: UIScreen.main.bounds.height / 38))
+            .foregroundColor(.white)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 2)
+        Spacer()
+    }
+    .padding(.top, 14)
+}
+
+func settingsSecondaryText(_ text: String) -> some View {
+    VStack(spacing: 0) {
+        HStack {
+            Text(text)
+                .font(.custom("Geometria-Light", size: UIScreen.main.bounds.height / 36))
+                .foregroundColor(.white)
+                .multilineTextAlignment(.leading)
+                .padding(.horizontal, 30)
+            Spacer()
+        }
+        
+        .padding(.top, 10)
+    }
+}

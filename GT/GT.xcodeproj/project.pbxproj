@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35283CD52B31052700EB07F6 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CD42B31052700EB07F6 /* ProfileSettingsView.swift */; };
+		35283CD72B31054600EB07F6 /* SupportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CD62B31054600EB07F6 /* SupportView.swift */; };
+		35283CD92B31058300EB07F6 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CD82B31058300EB07F6 /* BlackListView.swift */; };
+		35283CDB2B3105D800EB07F6 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CDA2B3105D800EB07F6 /* NotificationsView.swift */; };
+		35283CDD2B3105FB00EB07F6 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CDC2B3105FB00EB07F6 /* PrivacyView.swift */; };
 		353A917E2AF885B4002D6766 /* SegmentControlProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353A917D2AF885B4002D6766 /* SegmentControlProfile.swift */; };
 		353F49FA2B00D58600915B04 /* NeueMachina-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353F49F32B00D58500915B04 /* NeueMachina-Regular.ttf */; };
 		353F49FB2B00D58600915B04 /* NeueMachina-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353F49F42B00D58500915B04 /* NeueMachina-Black.ttf */; };
@@ -55,6 +60,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		35283CD42B31052700EB07F6 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		35283CD62B31054600EB07F6 /* SupportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportView.swift; sourceTree = "<group>"; };
+		35283CD82B31058300EB07F6 /* BlackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
+		35283CDA2B3105D800EB07F6 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		35283CDC2B3105FB00EB07F6 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
 		353A917D2AF885B4002D6766 /* SegmentControlProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlProfile.swift; sourceTree = "<group>"; };
 		353F49F32B00D58500915B04 /* NeueMachina-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeueMachina-Regular.ttf"; sourceTree = "<group>"; };
 		353F49F42B00D58500915B04 /* NeueMachina-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeueMachina-Black.ttf"; sourceTree = "<group>"; };
@@ -150,6 +160,11 @@
 			isa = PBXGroup;
 			children = (
 				353F4A432B020CE000915B04 /* SettingsView.swift */,
+				35283CDC2B3105FB00EB07F6 /* PrivacyView.swift */,
+				35283CDA2B3105D800EB07F6 /* NotificationsView.swift */,
+				35283CD82B31058300EB07F6 /* BlackListView.swift */,
+				35283CD62B31054600EB07F6 /* SupportView.swift */,
+				35283CD42B31052700EB07F6 /* ProfileSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -359,6 +374,7 @@
 				353F4A982B04FFBA00915B04 /* MeetsData.swift in Sources */,
 				353F4A3E2B00E9C400915B04 /* MeetsView.swift in Sources */,
 				353F4A462B02227C00915B04 /* UIUtils.swift in Sources */,
+				35283CDD2B3105FB00EB07F6 /* PrivacyView.swift in Sources */,
 				355A02A52AFDD1D8007B6C1E /* StrangerProfileView.swift in Sources */,
 				35BB32522B13ACE0003F44A3 /* MeetsControls.swift in Sources */,
 				35B426432AE87CA900ECF0AB /* ContentView.swift in Sources */,
@@ -366,7 +382,11 @@
 				353F4A9B2B050ACD00915B04 /* UserModel.swift in Sources */,
 				35B426412AE87CA900ECF0AB /* GTApp.swift in Sources */,
 				359E27FB2AF6397700F95276 /* CalendarView.swift in Sources */,
+				35283CD72B31054600EB07F6 /* SupportView.swift in Sources */,
 				359E27F92AF5C2A100F95276 /* DetailedInformationView.swift in Sources */,
+				35283CD92B31058300EB07F6 /* BlackListView.swift in Sources */,
+				35283CDB2B3105D800EB07F6 /* NotificationsView.swift in Sources */,
+				35283CD52B31052700EB07F6 /* ProfileSettingsView.swift in Sources */,
 				353F4A9D2B050AF600915B04 /* MeetModel.swift in Sources */,
 				35B793872AEB4792000D6780 /* ProfileView.swift in Sources */,
 				35B793832AEB44CD000D6780 /* ColorExtension.swift in Sources */,
