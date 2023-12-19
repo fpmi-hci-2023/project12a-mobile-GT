@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-import swiftui_bottom_sheet_drawer
+//import swiftui_bottom_sheet_drawer
+import BottomSheet
 
 struct StrangerProfileView: View {
     var avatar = "ava"
@@ -21,6 +22,9 @@ struct StrangerProfileView: View {
     @State var selection: Int = 0
     private let items: [String] = ["Created", "Visited"]
     @Environment(\.presentationMode) var presentationMode
+    
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.47)
+    
     var body: some View {
         ZStack(alignment: .top) {
             Color(hex: 0x070707).ignoresSafeArea()
@@ -33,8 +37,13 @@ struct StrangerProfileView: View {
             }
             
             .padding(.horizontal, 10)
-            BottomSheet(content: StrangerProfileContent(username: name, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
-            
+//            BottomSheet(content: StrangerProfileContent(username: name, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
+                .bottomSheet(bottomSheetPosition: self.$bottomSheetPosition, switchablePositions: [.relative(0.47), .relativeTop(0.975)], content: { StrangerProfileContent(username: name, description: description)})
+                .customBackground(
+                    Color(hex: 0x070707)
+                        .cornerRadius(10)
+                )
+                .enableAppleScrollBehavior()
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -122,6 +131,7 @@ struct StrangerProfileContent: View {
                     
                     Spacer()
                 }
+                .frame(height: 100)
                 .padding(.top, phoneWidth * 0.04)
                 .padding(.horizontal, phoneWidth * 0.06)
                 Spacer()

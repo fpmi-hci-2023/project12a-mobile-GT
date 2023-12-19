@@ -6,9 +6,12 @@
 //
 
 import SwiftUI
-import swiftui_bottom_sheet_drawer
+//import swiftui_bottom_sheet_drawer
+import BottomSheet
+
 
 struct DetailedInformationView: View {
+    
     @State var time: String
     @State var date: String
     @State var imageName: String
@@ -17,6 +20,7 @@ struct DetailedInformationView: View {
     @State var description: String
     @Environment(\.presentationMode) var presentationMode
 
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.47)
     var body: some View {
         ZStack(alignment: .top) {
             Color(hex: 0x070707).ignoresSafeArea()
@@ -25,9 +29,16 @@ struct DetailedInformationView: View {
             
             HeaderNavigationMeet(navLabel: meetName)
             
-            BottomSheet(content: MeetSheetContent(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
+            
+            
             
         }
+        .bottomSheet(bottomSheetPosition: self.$bottomSheetPosition, switchablePositions: [.relative(0.47), .relativeTop(0.975)], content: { MeetSheetContent(time: time, date: date, imageName: imageName, meetName: meetName, address: address, description: description)})
+        .customBackground(
+            Color(hex: 0x070707)
+                .cornerRadius(10)
+        )
+        .enableAppleScrollBehavior()
         .navigationBarBackButtonHidden(true)
     }
 }
@@ -40,12 +51,15 @@ struct DetailedInformationView: View {
 struct MeetImageView: View {
     @State var imageName: String
     var body: some View {
-        Image(imageName)
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
-            .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
-            .ignoresSafeArea()
+        if let image = loadImage(from: imageName) {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 1.8)
+                .roundedCorner(34, corners: [.bottomRight, .bottomLeft])
+                .ignoresSafeArea()
+        }
+           
     }
 }
 struct MeetSheetContent: View {

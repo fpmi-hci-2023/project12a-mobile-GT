@@ -16,17 +16,27 @@ import SwiftUI
 //    var address: String
 ////    var creator: User
 
-let webUrl = "https://chtoto/events?page=0"
+let webUrl = "https://qlxpx5f6-32773.euw.devtunnels.ms/Event?page=0"
 
 struct MeetModel: Identifiable, Codable {
     let id: Int
-    let userId: Int
     let image: String
     let name: String
     let description: String
     let date: String
     let address: String
+
 }
+
+func loadImage(from base64String: String) -> UIImage? {
+        let cleanedString = base64String
+            .replacingOccurrences(of: "data:image/png;base64,", with: "")
+            .replacingOccurrences(of: "data:image/jpeg;base64,", with: "")
+        
+        guard let imageData = Data(base64Encoded: cleanedString) else { return nil }
+        return UIImage(data: imageData)
+    }
+
 
 enum NetworkError: Error {
     case badUrl
@@ -73,15 +83,24 @@ class MeetViewModel: ObservableObject {
 
 struct TestApiView: View {
     @StateObject var vm = MeetViewModel()
-    
+
     var body: some View {
+      
         List(vm.meetData) { meet in
-            HStack {
-                Text("\(meet.userId)")
-                    .padding()
-                    .overlay(Circle().stroke(.blue))
-                
-                VStack(alignment: .leading) {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            if let image = loadImage(from: meet.image) {
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                            }
+                 
+                    Text(meet.address)
+                        .bold()
+                        .lineLimit(1)
+                    
+                 
+                    
                     Text(meet.name)
                         .bold()
                         .lineLimit(1)
@@ -101,6 +120,7 @@ struct TestApiView: View {
             }
         }
     }
+   
 }
 
 

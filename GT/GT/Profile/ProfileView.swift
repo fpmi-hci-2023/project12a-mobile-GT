@@ -6,8 +6,20 @@
 //
 
 import SwiftUI
-import swiftui_bottom_sheet_drawer
 
+import BottomSheet
+
+enum BottomSheetAbsolutePosition: CGFloat, CaseIterable {
+//    case bottom = 182
+    case middle = 320
+    case top = 700
+}
+
+enum BottomSheetRelativePosition: CGFloat, CaseIterable {
+//    case bottom = 0.216
+    case middle = 0.5
+    case top = 0.829
+}
 
 struct ProfileView: View {
     
@@ -21,6 +33,10 @@ struct ProfileView: View {
     @State var selection: Int = 0
     private let items: [String] = ["Created", "Visited", "Saved"]
     @Environment(\.presentationMode) var presentationMode
+  
+    
+    @State var bottomSheetPosition: BottomSheetPosition = .relative(0.47)
+//    @State var switchablePositions: BottomSheetPosition = .top
     
     var body: some View {
         NavigationView {
@@ -38,14 +54,87 @@ struct ProfileView: View {
                 }
                 .padding(.horizontal)
                 
-                BottomSheet(content: SelfProfileContent(username: name, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
                 
+                .bottomSheet(bottomSheetPosition: self.$bottomSheetPosition, switchablePositions: [.relative(0.47), .relativeTop(0.975)], content: { SelfProfileContent(username: name, description: description)})
+                .customBackground(
+                    Color(hex: 0x070707)
+                        .cornerRadius(10)
+                )
+                .enableAppleScrollBehavior()
+//                BottomSheet(content: SelfProfileContent(username: name, description: description), shift: phoneHeight * 0.44, topIndentation: phoneHeight * 0.06, draggerHeight: phoneHeight * 0.26, dragThresholdToAct: phoneHeight * 0.26)
+           
             }
             .navigationBarBackButtonHidden(true)
         }
     }
     
 }
+
+
+
+
+
+//struct ABC: View {
+//    @State var position: BottomSheetRelativePosition = .middle
+//    var body: some View {
+//        ZStack {
+//            BottomSheetView(
+//                position: $position,
+//                header: {
+//                    VStack(spacing: 0) {
+//                        Button(action: {
+//                            if position != .top {
+//                                position = .top
+//                            } else {
+//                                position = .middle
+//                            }
+//                        }, label: {
+//                            Rectangle()
+//                                .frame(
+//                                    width: 36,
+//                                    height: 5,
+//                                    alignment: .center
+//                                )
+//                                .foregroundColor(Color(UIColor.systemGray3))
+//                                .cornerRadius(2.5)
+//                        })
+//                    }
+//                    .padding(.top, 8)
+//                    .padding(.horizontal, 16)
+//                    //                    .background(
+//                    //                        Color(UIColor.systemBackground)
+//                    //                            .cornerRadius(12, corners: [.topLeft, .topRight])
+//                    //                    )
+//                },
+//                content: {
+//                    ZStack {
+//                        VStack(spacing: 0) {
+//                            ScrollView {
+//                                HStack {
+//                                    Spacer()
+//                                    Text("Pudge")
+//                                    Spacer()
+//                                }
+//                            }
+//                            
+//                            Spacer(minLength: 54)
+//                        }
+//                    }
+//                    .background(
+//                        Color(UIColor.green)
+//                    )
+//                    
+//                }
+//            )
+//            .animationCurve(mass: 1, stiffness: 250)
+//            
+//            .snapThreshold(1.8)
+//            .onBottomSheetDrag { translation in
+//                print("Translation", translation)
+//            }
+//        }
+//    }
+//}
     
 struct SelfProfileImageView: View {
     @State var avatar: String
@@ -128,6 +217,7 @@ struct SelfProfileContent: View {
                     
                     Spacer()
                 }
+                .frame(height: 100)
                 .padding(.top, phoneWidth * 0.04)
                 .padding(.horizontal, phoneWidth * 0.06)
                 Spacer()

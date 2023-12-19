@@ -91,19 +91,20 @@ struct ImageScrollView: UIViewRepresentable {
 struct ImageView: View {
     
     @Binding var data: [MeetData]
-    
+    @StateObject var vm = MeetViewModel()
     var body: some View {
         ZStack {
             
             VStack(spacing: 0) {
-                ForEach($data) { $meetData in
+                ForEach(vm.meetData) { meet in
                     ZStack {
-                        Image(meetData.imageName)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                            .offset(y: -5)
-                        
+                        if let image = loadImage(from: meet.image) {
+                            Image(uiImage: image)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                .offset(y: -5)
+                        }
                     }
                     
                 }
@@ -123,14 +124,14 @@ struct ImageView: View {
             }
             
             VStack(spacing: 0) {
-                ForEach($data) { $meetData in
+                ForEach(vm.meetData) { meet in
                     ZStack {
                         Rectangle()
                             .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                             .offset(y: -5)
                             .foregroundStyle(.clear)
-                        MeetsLabels(meetName: meetData.meetName, address: meetData.address, description: meetData.description)
-                        MeetsControls(time: meetData.time, date: meetData.date, imageName: meetData.imageName, meetName: meetData.meetName, address: meetData.address, description: meetData.description)
+                        MeetsLabels(meetName: meet.name, address: meet.address, description: meet.description)
+                        MeetsControls(time: meet.date, date: meet.date, imageName: meet.image, meetName: meet.name, address: meet.address, description: meet.description)
                         
                     }
                 }
@@ -147,6 +148,13 @@ struct ImageView: View {
             //                    ))
             
         }
+        .onAppear {
+            if vm.meetData.isEmpty {
+                Task {
+                    await vm.fetchData()
+                }
+            }
+        }
     }
 }
 
@@ -154,74 +162,3 @@ struct ImageView: View {
 #Preview {
     MeetsView()
 }
-
-
-
-
-
-
-
-
-//struct SwiftUIView: View {
-//    @State private var showAlert = false;
-//
-//    var body: some View {
-//        Button(action: { self.showAlert = true }) {
-//            Text("Show alert")
-//        }.alert(
-//            isPresented: $showAlert,
-//            content: { Alert(titzle: Text("Hello world")) }
-//        )
-//    }
-//}
-
-
-//@ViewBuilder
-//func VideoView()->some View {
-////        var meets: Meet
-//    GeometryReader { proxy in
-//        let size = proxy.size
-//
-//        TabView {
-//            ForEach(DummyPhoto.photos, id: \.id) { tiktok in
-//                tiktok.photo
-//                    .resizable().clipped()
-//                    .aspectRatio(contentMode: .fill)
-//                    .frame(width: size.width)
-//
-//                    .overlay {
-//                        MeetsControls()
-//                            .padding(.bottom, phoneHeight / 8)
-//                    }
-//                    .rotationEffect(.init(degrees: -90))
-//                    .ignoresSafeArea(.all)
-//
-//
-//            }
-//        }
-//        .rotationEffect(.init(degrees: 90))
-//        .frame(width: size.height)
-//
-//        .tabViewStyle(.page(indexDisplayMode: .never))
-//        .frame(width: size.width)
-//    }
-//    .ignoresSafeArea(.all)
-//}
-//}
-//struct MeetsView: View {
-//
-//    @Environment(\.presentationMode) var presentationMode
-//    var body: some View {
-//        NavigationView {
-//
-//            ZStack {
-//                //                MeetsDataBase()
-//                Swiper()
-//                FilterButton()
-//                //                MeetsLabels(meets: meets)
-//                //                MeetsButtons()
-//            }
-//
-//        }
-//    }
-//}

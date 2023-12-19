@@ -58,6 +58,7 @@
 		35B793872AEB4792000D6780 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B793862AEB4792000D6780 /* ProfileView.swift */; };
 		35B793892AEB479C000D6780 /* ChatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35B793882AEB479C000D6780 /* ChatsView.swift */; };
 		35BB32522B13ACE0003F44A3 /* MeetsControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB32512B13ACE0003F44A3 /* MeetsControls.swift */; };
+		35C793172B32137D00411C66 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 35C793162B32137D00411C66 /* BottomSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				358486382B2FA35000F9D903 /* swiftui-bottom-sheet-drawer in Frameworks */,
+				35C793172B32137D00411C66 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,6 +293,7 @@
 			name = GT;
 			packageProductDependencies = (
 				358486372B2FA35000F9D903 /* swiftui-bottom-sheet-drawer */,
+				35C793162B32137D00411C66 /* BottomSheet */,
 			);
 			productName = GT;
 			productReference = 35B4263D2AE87CA900ECF0AB /* GT.app */;
@@ -322,6 +325,7 @@
 			mainGroup = 35B426342AE87CA900ECF0AB;
 			packageReferences = (
 				358486362B2FA34F00F9D903 /* XCRemoteSwiftPackageReference "swiftui-bottom-sheet-drawer" */,
+				35283CE22B320A4C00EB07F6 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = 35B4263E2AE87CA900ECF0AB /* Products */;
 			projectDirPath = "";
@@ -608,6 +612,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		35283CE22B320A4C00EB07F6 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lucaszischka/BottomSheet";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.1;
+			};
+		};
 		358486362B2FA34F00F9D903 /* XCRemoteSwiftPackageReference "swiftui-bottom-sheet-drawer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/The-Igor/swiftui-bottom-sheet-drawer";
@@ -623,6 +635,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 358486362B2FA34F00F9D903 /* XCRemoteSwiftPackageReference "swiftui-bottom-sheet-drawer" */;
 			productName = "swiftui-bottom-sheet-drawer";
+		};
+		35C793162B32137D00411C66 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 35283CE22B320A4C00EB07F6 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

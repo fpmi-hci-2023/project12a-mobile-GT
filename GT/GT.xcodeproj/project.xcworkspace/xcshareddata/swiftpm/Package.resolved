@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "bottomsheet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lucaszischka/BottomSheet",
+      "state" : {
+        "revision" : "720ddbd1371fef2a09cc1ab65fc503df37767f9c",
+        "version" : "3.1.1"
+      }
+    },
+    {
       "identity" : "swiftui-bottom-sheet-drawer",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/The-Igor/swiftui-bottom-sheet-drawer",
