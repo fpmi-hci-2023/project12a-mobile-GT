@@ -12,6 +12,7 @@
 		35283CD92B31058300EB07F6 /* BlackListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CD82B31058300EB07F6 /* BlackListView.swift */; };
 		35283CDB2B3105D800EB07F6 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CDA2B3105D800EB07F6 /* NotificationsView.swift */; };
 		35283CDD2B3105FB00EB07F6 /* PrivacyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CDC2B3105FB00EB07F6 /* PrivacyView.swift */; };
+		35283CE12B31FD8E00EB07F6 /* TestApiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35283CE02B31FD8E00EB07F6 /* TestApiView.swift */; };
 		353A917E2AF885B4002D6766 /* SegmentControlProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353A917D2AF885B4002D6766 /* SegmentControlProfile.swift */; };
 		353F49FA2B00D58600915B04 /* NeueMachina-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353F49F32B00D58500915B04 /* NeueMachina-Regular.ttf */; };
 		353F49FB2B00D58600915B04 /* NeueMachina-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 353F49F42B00D58500915B04 /* NeueMachina-Black.ttf */; };
@@ -65,6 +66,7 @@
 		35283CD82B31058300EB07F6 /* BlackListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackListView.swift; sourceTree = "<group>"; };
 		35283CDA2B3105D800EB07F6 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		35283CDC2B3105FB00EB07F6 /* PrivacyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyView.swift; sourceTree = "<group>"; };
+		35283CE02B31FD8E00EB07F6 /* TestApiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiView.swift; sourceTree = "<group>"; };
 		353A917D2AF885B4002D6766 /* SegmentControlProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlProfile.swift; sourceTree = "<group>"; };
 		353F49F32B00D58500915B04 /* NeueMachina-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeueMachina-Regular.ttf"; sourceTree = "<group>"; };
 		353F49F42B00D58500915B04 /* NeueMachina-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NeueMachina-Black.ttf"; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 			children = (
 				353F4A9A2B050ACD00915B04 /* UserModel.swift */,
 				353F4A9C2B050AF600915B04 /* MeetModel.swift */,
+				35283CE02B31FD8E00EB07F6 /* TestApiView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				353F4A932B03A57900915B04 /* Swiper.swift in Sources */,
 				353F4A402B0139EB00915B04 /* MeetFiltersView.swift in Sources */,
 				353F4A442B020CE000915B04 /* SettingsView.swift in Sources */,
+				35283CE12B31FD8E00EB07F6 /* TestApiView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
